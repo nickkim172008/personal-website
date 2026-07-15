@@ -32,7 +32,28 @@ export default function ProjectCard({ project, reversed = false }: ProjectCardPr
       }`}
     >
       <Reveal y={32}>
-        <div
+        {project.demoHref ? (
+          <a
+            href={project.demoHref}
+            target="_blank"
+            rel="noopener noreferrer"
+            aria-label={`Open ${project.title} live demo`}
+            className={`group relative block overflow-hidden rounded-2xl border border-border bg-surface-raised shadow-sm focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent focus-visible:ring-offset-4 focus-visible:ring-offset-surface ${
+              project.featured ? 'aspect-[16/11]' : 'aspect-[16/10]'
+            }`}
+          >
+            <motion.div style={{ y: parallaxY }} className="absolute inset-0 transition-transform duration-300 group-hover:scale-[1.02]">
+              <Image
+                src={project.image}
+                alt={project.imageAlt}
+                fill
+                sizes={imageSizes}
+                className="object-cover"
+              />
+            </motion.div>
+          </a>
+        ) : (
+          <div
           className={`relative overflow-hidden rounded-2xl border border-border bg-surface-raised shadow-sm ${
             project.featured ? 'aspect-[16/11]' : 'aspect-[16/10]'
           }`}
@@ -46,7 +67,8 @@ export default function ProjectCard({ project, reversed = false }: ProjectCardPr
               className="object-cover"
             />
           </motion.div>
-        </div>
+          </div>
+        )}
       </Reveal>
 
       <Reveal delay={0.1}>
@@ -82,7 +104,7 @@ export default function ProjectCard({ project, reversed = false }: ProjectCardPr
                 className="flex items-center gap-1.5 text-sm font-medium text-ink transition-colors duration-150 hover:text-accent"
               >
                 <ExternalLink size={15} aria-hidden="true" />
-                Live demo
+                {project.demoLabel ?? 'Live demo'}
               </a>
             )}
             {project.sourceHref && (
@@ -93,7 +115,18 @@ export default function ProjectCard({ project, reversed = false }: ProjectCardPr
                 className="flex items-center gap-1.5 text-sm font-medium text-ink transition-colors duration-150 hover:text-accent"
               >
                 <Github size={15} aria-hidden="true" />
-                Source
+                {project.sourceLabel ?? 'Source'}
+              </a>
+            )}
+            {project.devpostHref && (
+              <a
+                href={project.devpostHref}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="flex items-center gap-1.5 text-sm font-medium text-ink transition-colors duration-150 hover:text-accent"
+              >
+                <ExternalLink size={15} aria-hidden="true" />
+                Devpost
               </a>
             )}
           </div>

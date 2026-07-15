@@ -118,11 +118,11 @@ export const lately = {
   },
   guitar: {
     heading: 'Guitar',
-    image: '/images/guitar-placeholder.svg',
-    imageAlt: 'Placeholder thumbnail of an acoustic guitar',
-    sentence: 'A short placeholder sentence about playing guitar and posting covers goes here.',
-    tiktokHandle: '@your-tiktok-handle',
-    tiktokHref: 'https://www.tiktok.com/@your-tiktok-handle',
+    image: '/images/guitar.jpg',
+    imageAlt: 'Nicholas playing guitar and singing at home',
+    sentence: "Just for fun — I post covers sometimes and genuinely don't care about the followers lol.",
+    tiktokHandle: '@kimmer_music17',
+    tiktokHref: 'https://www.tiktok.com/@kimmer_music17',
     cta: 'Watch my covers',
   },
 }
@@ -182,33 +182,41 @@ export interface Project {
   imageAlt: string
   tags: string[]
   demoHref?: string
+  demoLabel?: string
   sourceHref?: string
+  sourceLabel?: string
+  devpostHref?: string
   featured?: boolean
 }
 
 export const projects: Project[] = [
   {
-    title: 'Featured Project One',
+    title: 'nomad',
     description:
-      'Placeholder description of this featured project — what it does and the problem it solves goes here.',
-    result: 'Placeholder role and result summary goes here.',
-    image: '/images/project-placeholder-1.svg',
-    imageAlt: 'Placeholder artwork for Featured Project One',
-    tags: ['Tech One', 'Tech Two', 'Tech Three'],
-    demoHref: 'https://example.com/demo-one',
-    sourceHref: 'https://github.com/your-username/project-one',
+      'A permission and identity layer for autonomous AI agents. nomad gives each agent a cryptographically verifiable passport on Solana, allowing services to confirm exactly what it can do—and letting owners narrow or revoke those permissions at any time.',
+    result: 'Co-built with a team of three for JAMHacks 10. Winner of Best Use of Solana.',
+    image: '/images/nomad.png',
+    imageAlt: 'Nomad AI agent permission interface',
+    tags: ['Solana', 'Rust / Anchor', 'TypeScript'],
+    demoHref: 'https://x.com/nkimmer_17/status/2066940490096787797',
+    demoLabel: 'Live demo',
+    sourceHref: 'https://github.com/nickkim172008/nomad',
+    sourceLabel: 'View source',
+    devpostHref: 'https://devpost.com/software/nomad-nrgx3l',
     featured: true,
   },
   {
-    title: 'Featured Project Two',
+    title: 'Buzzy',
     description:
-      'Placeholder description of this project — what it does and the problem it solves goes here.',
-    result: 'Placeholder role and result summary goes here.',
-    image: '/images/project-placeholder-2.svg',
-    imageAlt: 'Placeholder artwork for Featured Project Two',
-    tags: ['Tech One', 'Tech Two'],
-    demoHref: 'https://example.com/demo-two',
-    sourceHref: 'https://github.com/your-username/project-two',
+      'A social hype market where users discover cultural trends, participate in initial drops, and trade virtual shares using in-app tokens. Prices respond to completed trades, letting users test how early they can identify cultural momentum.',
+    result:
+      'Co-built a full-stack virtual marketplace with real-time asset listings, portfolios, order books, trade histories, community suggestions, and voting for EurekaHacks 2026.',
+    image: '/images/buzzy.png',
+    imageAlt: 'Buzzy virtual marketplace trading dashboard',
+    tags: ['Next.js', 'TypeScript', 'Firebase'],
+    demoHref: 'https://buzzly-zeta.vercel.app',
+    sourceHref: 'https://github.com/nickkim172008/buzzy',
+    devpostHref: 'https://devpost.com/software/buzzy-xd1w2u',
   },
   {
     title: 'Featured Project Three',
