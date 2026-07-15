@@ -193,6 +193,5 @@ export const contact = {
 }
 
 export const footer = {
-  attribution: `Designed and built by ${site.name}.`,
-  lastUpdated: 'Last updated: July 2026',
+  attribution: `Designed and built by Nicholas Kim`,
 }
