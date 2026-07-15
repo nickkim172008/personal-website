@@ -29,6 +29,7 @@ const config: Config = {
         accent: {
           DEFAULT: 'var(--color-accent)',
           soft: 'var(--color-accent-soft)',
+          strong: 'var(--color-accent-strong)',
         },
       },
       maxWidth: {

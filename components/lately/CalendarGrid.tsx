@@ -53,8 +53,12 @@ export default function CalendarGrid({ days }: CalendarGridProps) {
                 aria-label={label}
                 title={label}
                 className={`flex h-7 w-7 items-center justify-center rounded-full text-xs font-semibold transition-colors duration-150 ${
-                  day.didWorkout ? 'bg-accent text-surface' : 'text-ink-muted'
-                } ${isToday ? 'ring-2 ring-accent ring-offset-1 ring-offset-surface-raised' : ''}`}
+                  day.didWorkout
+                    ? 'bg-accent text-surface'
+                    : isToday
+                      ? 'text-accent-strong'
+                      : 'text-ink-muted'
+                }`}
               >
                 {dayNumber}
               </span>

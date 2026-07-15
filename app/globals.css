@@ -11,6 +11,7 @@
   --color-border: #e5e0d8;
   --color-accent: #b45309;
   --color-accent-soft: #fdebd3;
+  --color-accent-strong: #7c3a0a;
 }
 
 .dark {
@@ -22,6 +23,7 @@
   --color-border: #322f2a;
   --color-accent: #e0983f;
   --color-accent-soft: #3a2c17;
+  --color-accent-strong: #b4630f;
 }
 
 html {

@@ -48,15 +48,19 @@ function TrainingContent({ data }: { data: HevyDashboardData }) {
       <dl className="mt-4 grid grid-cols-3 gap-2 text-center">
         <div className="rounded-xl bg-surface px-2 py-2.5">
           <dt className="text-[11px] uppercase tracking-wide text-ink-faint">Streak</dt>
-          <dd className="mt-1 font-playfair text-lg font-semibold text-ink">{data.streakDays}d</dd>
+          <dd className="mt-1 font-playfair text-lg font-semibold text-ink">
+            {data.streakDays}d <span aria-hidden="true">🔥</span>
+          </dd>
         </div>
         <div className="rounded-xl bg-surface px-2 py-2.5">
           <dt className="text-[11px] uppercase tracking-wide text-ink-faint">This week</dt>
           <dd className="mt-1 font-playfair text-lg font-semibold text-ink">{data.workoutsThisWeek}</dd>
+          <dd className="text-[10px] text-ink-faint">workouts</dd>
         </div>
         <div className="rounded-xl bg-surface px-2 py-2.5">
           <dt className="text-[11px] uppercase tracking-wide text-ink-faint">This month</dt>
           <dd className="mt-1 font-playfair text-lg font-semibold text-ink">{data.workoutsThisMonth}</dd>
+          <dd className="text-[10px] text-ink-faint">workouts</dd>
         </div>
       </dl>
     </div>

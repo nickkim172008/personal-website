@@ -190,8 +190,14 @@ function computeStatsFromDates(
     calendar.push({ date: iso, didWorkout: date <= today && workoutDates.has(iso) })
   }
 
+  // If today hasn't been logged yet, the streak still counts back from
+  // yesterday — it only breaks once a full day is missed, not the moment
+  // today's workout hasn't happened yet.
   let streakDays = 0
   const cursor = new Date(today)
+  if (!workoutDates.has(toIsoDate(cursor))) {
+    cursor.setDate(cursor.getDate() - 1)
+  }
   while (workoutDates.has(toIsoDate(cursor))) {
     streakDays += 1
     cursor.setDate(cursor.getDate() - 1)

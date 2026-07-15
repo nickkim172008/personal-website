@@ -238,13 +238,6 @@ export const contact = {
   emailCta: 'Say hello',
 }
 
-export const webring = {
-  name: 'UW CS Webring',
-  prevHref: 'https://example.com/webring/prev',
-  nextHref: 'https://example.com/webring/next',
-  homeHref: 'https://example.com/webring',
-}
-
 export const footer = {
   attribution: `Designed and built by ${site.name}.`,
   lastUpdated: 'Last updated: placeholder date',
