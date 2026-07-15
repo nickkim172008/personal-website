@@ -20,8 +20,7 @@ export default function Work() {
     <section id="work" className="px-6 py-24 md:px-10 md:py-32">
       <div className="mx-auto max-w-content">
         <Reveal>
-          <p className="text-sm font-medium uppercase tracking-[0.2em] text-accent">Work</p>
-          <h2 className="mt-2 font-playfair text-3xl font-bold text-ink md:text-4xl">Experience</h2>
+          <h2 className="text-sm font-medium uppercase tracking-[0.2em] text-accent">Work</h2>
         </Reveal>
 
         <div ref={sectionRef} className="relative mt-14">

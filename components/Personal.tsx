@@ -9,25 +9,20 @@ export default function Personal() {
     <section id="personal" className="px-6 py-24 md:px-10 md:py-32">
       <div className="mx-auto max-w-content">
         <Reveal>
-          <p className="text-sm font-medium uppercase tracking-[0.2em] text-accent">Personal</p>
-          <h2 className="mt-2 font-playfair text-3xl font-bold text-ink md:text-4xl">{lately.heading}</h2>
+          <h2 className="text-sm font-medium uppercase tracking-[0.2em] text-accent">Hobbies</h2>
         </Reveal>
 
-        <div className="mx-auto mt-12 max-w-2xl">
+        <div className="mt-12 grid items-start gap-6 md:grid-cols-3">
           <Reveal delay={0.06}>
             <TrainingCard />
           </Reveal>
 
           <Reveal delay={0.1}>
-            <div className="mt-6">
-              <LastWorkoutCard />
-            </div>
+            <LastWorkoutCard />
           </Reveal>
 
           <Reveal delay={0.14}>
-            <div className="mt-6">
-              <GuitarCard />
-            </div>
+            <GuitarCard />
           </Reveal>
         </div>
       </div>

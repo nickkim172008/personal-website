@@ -11,7 +11,7 @@ export const navLinks: NavLink[] = [
   { href: '#about', label: 'About' },
   { href: '#work', label: 'Work' },
   { href: '#projects', label: 'Projects' },
-  { href: '#personal', label: 'Personal' },
+  { href: '#personal', label: 'Hobbies' },
   { href: '#contact', label: 'Contact' },
 ]
 
@@ -33,7 +33,7 @@ export const site = {
   title: 'Your short professional title goes here',
   description:
     "Placeholder portfolio site — a short SEO description of who you are and what you build goes here.",
-  email: 'nicholskimto@gmail.com',
+  email: 'nicholaskimto@gmail.com',
 }
 
 export const hero = {
@@ -42,7 +42,7 @@ export const hero = {
   tagline:
     'Building software, exploring AI, and learning a little more every day.',
   primaryCta: { label: 'View My Work', href: '#projects' },
-  secondaryCta: { label: 'Résumé', href: '/resume.pdf' },
+  secondaryCta: { label: "Let's Talk", href: '#contact' },
   portraitSrc: '/images/portrait.jpg',
   portraitAlt: 'Portrait photo of Nicholas',
 }
@@ -125,7 +125,7 @@ export const lately = {
     heading: 'Guitar',
     image: '/images/guitar.jpg',
     imageAlt: 'Nicholas playing guitar and singing at home',
-    sentence: "Just for fun — I post covers sometimes and genuinely don't care about the followers lol.",
+    sentence: "Just for fun — I post covers sometimes lol.",
     tiktokHandle: '@kimmer_music17',
     tiktokHref: 'https://www.tiktok.com/@kimmer_music17',
     cta: 'Watch my covers',
@@ -223,7 +223,6 @@ export const projects: Project[] = [
 ]
 
 export const contact = {
-  heading: 'Contact Me',
   invitation:
     "Feel free to reach out if you'd like to discuss opportunities, have a quick coffee chat, or just say hi! I'm always looking forward to meeting new people.",
   portraitSrc: '/images/portrait.jpg',
@@ -233,5 +232,5 @@ export const contact = {
 
 export const footer = {
   attribution: `Designed and built by ${site.name}.`,
-  lastUpdated: 'Last updated: placeholder date',
+  lastUpdated: 'Last updated: July 2026',
 }
