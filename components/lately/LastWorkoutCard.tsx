@@ -1,6 +1,7 @@
 'use client'
 
-import { ListChecks } from 'lucide-react'
+import { ExternalLink, ListChecks } from 'lucide-react'
+import { lately } from '@/lib/data'
 import { useJsonFetch } from '@/lib/useJsonFetch'
 import type { HevyDashboardData, WorkoutSet } from '@/lib/hevy'
 
@@ -8,16 +9,25 @@ export default function LastWorkoutCard() {
   const state = useJsonFetch<HevyDashboardData>('/api/hevy')
 
   return (
-    <div className="rounded-2xl border border-border bg-surface-raised p-5 shadow-sm transition-colors duration-200 hover:border-accent/40 sm:p-6">
-      <div className="flex items-center gap-2">
-        <ListChecks size={16} className="text-accent" aria-hidden="true" />
-        <h3 className="font-playfair text-base font-semibold text-ink">Last workout</h3>
+    <a
+      href={lately.training.hevyProfileHref}
+      target="_blank"
+      rel="noopener noreferrer"
+      aria-label="Open my latest workouts on Hevy"
+      className="block rounded-2xl border border-border bg-surface-raised p-5 shadow-sm transition-all duration-200 hover:-translate-y-0.5 hover:border-accent/40 hover:shadow-md sm:p-6"
+    >
+      <div className="flex items-center justify-between">
+        <div className="flex items-center gap-2">
+          <ListChecks size={16} className="text-accent" aria-hidden="true" />
+          <h3 className="font-playfair text-base font-semibold text-ink">Last workout</h3>
+        </div>
+        <ExternalLink size={14} className="text-ink-faint" aria-hidden="true" />
       </div>
 
       {state.status === 'loading' && <LastWorkoutSkeleton />}
       {state.status === 'error' && <LastWorkoutUnavailable />}
       {state.status === 'ready' && <LastWorkoutContent data={state.data} />}
-    </div>
+    </a>
   )
 }
 

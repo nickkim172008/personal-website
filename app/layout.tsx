@@ -19,23 +19,27 @@ const inter = Inter({
 })
 
 export const metadata: Metadata = {
-  metadataBase: new URL('https://example.com'),
-  title: `${site.name} — Portfolio (Placeholder)`,
+  metadataBase: new URL('https://nickkim.dev'),
+  title: 'Nick Kim — Portfolio',
   description: site.description,
+  alternates: {
+    canonical: 'https://nickkim.dev',
+  },
   icons: {
     icon: '/favicon.svg',
   },
   openGraph: {
-    title: `${site.name} — Portfolio (Placeholder)`,
+    title: 'Nick Kim — Portfolio',
     description: site.description,
+    url: 'https://nickkim.dev',
     type: 'website',
-    images: ['/images/og-placeholder.svg'],
+    images: [{ url: '/images/og-image.png', width: 1200, height: 630 }],
   },
   twitter: {
     card: 'summary_large_image',
-    title: `${site.name} — Portfolio (Placeholder)`,
+    title: 'Nick Kim — Portfolio',
     description: site.description,
-    images: ['/images/og-placeholder.svg'],
+    images: ['/images/og-image.png'],
   },
 }
 

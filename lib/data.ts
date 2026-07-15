@@ -30,21 +30,20 @@ export const socialLinks: SocialLink[] = [
 export const site = {
   name: 'Nick',
   fullName: 'Nicholas [Kim]',
-  title: 'Your short professional title goes here',
   description:
-    "Placeholder portfolio site — a short SEO description of who you are and what you build goes here.",
+    'Engineering student at the University of Waterloo exploring AI systems, software engineering, and useful products.',
   email: 'nicholaskimto@gmail.com',
 }
 
 export const hero = {
   greeting: "Hi, I'm",
-  name: site.name,
+  name: 'Nick Kim',
   tagline:
     'Building software, exploring AI, and learning a little more every day.',
   primaryCta: { label: 'View My Work', href: '#projects' },
   secondaryCta: { label: "Let's Talk", href: '#contact' },
   portraitSrc: '/images/portrait.jpg',
-  portraitAlt: 'Portrait photo of Nicholas',
+  portraitAlt: 'Portrait photo of Nick',
 }
 
 export const about = {
@@ -124,7 +123,7 @@ export const lately = {
   guitar: {
     heading: 'Guitar',
     image: '/images/guitar.jpg',
-    imageAlt: 'Nicholas playing guitar and singing at home',
+    imageAlt: 'Nick playing guitar and singing at home',
     sentence: "Just for fun — I post covers sometimes lol.",
     tiktokHandle: '@kimmer_music17',
     tiktokHref: 'https://www.tiktok.com/@kimmer_music17',
@@ -226,7 +225,7 @@ export const contact = {
   invitation:
     "Feel free to reach out if you'd like to discuss opportunities, have a quick coffee chat, or just say hi! I'm always looking forward to meeting new people.",
   portraitSrc: '/images/portrait.jpg',
-  portraitAlt: 'Nicholas in front of the Golden Gate Bridge',
+  portraitAlt: 'Nick in front of the Golden Gate Bridge',
   submitLabel: 'Submit',
 }
 

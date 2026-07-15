@@ -10,27 +10,27 @@ export default function TrainingCard() {
   const state = useJsonFetch<HevyDashboardData>('/api/hevy')
 
   return (
-    <div className="rounded-2xl border border-border bg-surface-raised p-5 shadow-sm transition-colors duration-200 hover:border-accent/40 sm:p-6">
+    <a
+      href={lately.training.hevyProfileHref}
+      target="_blank"
+      rel="noopener noreferrer"
+      aria-label={lately.training.profileLinkLabel}
+      className="block rounded-2xl border border-border bg-surface-raised p-5 shadow-sm transition-all duration-200 hover:-translate-y-0.5 hover:border-accent/40 hover:shadow-md sm:p-6"
+    >
       <div className="flex items-center justify-between">
         <div className="flex items-center gap-2">
           <Dumbbell size={16} className="text-accent" aria-hidden="true" />
           <h3 className="font-playfair text-base font-semibold text-ink">{lately.training.heading}</h3>
         </div>
-        <a
-          href={lately.training.hevyProfileHref}
-          target="_blank"
-          rel="noopener noreferrer"
-          aria-label={lately.training.profileLinkLabel}
-          className="text-ink-faint transition-colors duration-150 hover:text-accent"
-        >
+        <span className="text-ink-faint" aria-hidden="true">
           <ExternalLink size={14} aria-hidden="true" />
-        </a>
+        </span>
       </div>
 
       {state.status === 'loading' && <TrainingSkeleton />}
       {state.status === 'error' && <TrainingUnavailable />}
       {state.status === 'ready' && <TrainingContent data={state.data} />}
-    </div>
+    </a>
   )
 }
 
@@ -89,4 +89,3 @@ function TrainingUnavailable() {
     </div>
   )
 }
-
