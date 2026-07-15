@@ -4,6 +4,7 @@ import Image from 'next/image'
 import { motion, useReducedMotion } from 'framer-motion'
 import { ArrowDown } from 'lucide-react'
 import { hero } from '@/lib/data'
+import HeroDoodles from './HeroDoodles'
 
 const container = {
   hidden: {},
@@ -39,6 +40,8 @@ export default function Hero() {
           style={{ animationDelay: '-9s' }}
         />
       </div>
+
+      <HeroDoodles />
 
       <motion.div
         initial="hidden"

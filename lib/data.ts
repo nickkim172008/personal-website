@@ -147,7 +147,7 @@ export const work: WorkEntry[] = [
     title: 'Software Engineering Intern',
     dates: 'June 2026 — Present',
     description:
-      'Building AI-powered recommendation systems and backend infrastructure for a professional networking platform. Designed an eight-signal matching engine, reduced recommendation latency from hours to near real time, and strengthened platform security by fixing a production vulnerability.',
+      'Building AI-powered matching and backend systems that deliver secure, near-real-time recommendations.',
     tags: ['Python', 'TypeScript', 'Neo4j', 'Recommendation Systems', 'Vector Embeddings', 'Backend Development'],
   },
   {
@@ -158,7 +158,7 @@ export const work: WorkEntry[] = [
     title: 'Machine Learning Research Intern',
     dates: 'June 2026 — Present',
     description:
-      'Conducting AI safety research through a competitive fellowship alongside researchers from MIT, Princeton, and Cornell. My work focuses on self-improving LLM harnesses, exploring how retrieval augmentation and adaptive evaluation can improve safety while preserving model capabilities.',
+      'Researching safer, self-improving LLM systems using retrieval augmentation and adaptive evaluation.',
     tags: ['Python', 'LLMs', 'AI Safety', 'RAG', 'Machine Learning', 'Research'],
   },
   {
@@ -169,7 +169,7 @@ export const work: WorkEntry[] = [
     title: 'Founder & Lead Tutor',
     dates: 'Sept 2024 — June 2026',
     description:
-      'Founded and grew a tutoring business that helped 18 high school students strengthen their mathematics skills, including AP Calculus. Built the business through referrals while creating personalized learning experiences and simplifying complex concepts.',
+      'Founded a referral-driven tutoring business that helped 18 students strengthen their mathematics skills.',
     tags: ['Entrepreneurship', 'Teaching', 'Communication', 'Leadership', 'Mathematics'],
   },
 ]
@@ -193,7 +193,7 @@ export const projects: Project[] = [
   {
     title: 'nomad',
     description:
-      'A permission and identity layer for autonomous AI agents. nomad gives each agent a cryptographically verifiable passport on Solana, allowing services to confirm exactly what it can do—and letting owners narrow or revoke those permissions at any time.',
+      'A Solana-based identity layer that gives AI agents verifiable, revocable permissions.',
     result: 'Co-built with a team of three for JAMHacks 10. Winner of Best Use of Solana.',
     image: '/images/nomad.png',
     imageAlt: 'Nomad AI agent permission interface',
@@ -208,7 +208,7 @@ export const projects: Project[] = [
   {
     title: 'Buzzy',
     description:
-      'A social hype market where users discover cultural trends, participate in initial drops, and trade virtual shares using in-app tokens. Prices respond to completed trades, letting users test how early they can identify cultural momentum.',
+      'A social market where users discover trends and trade virtual shares using in-app tokens.',
     result:
       'Co-built a full-stack virtual marketplace with real-time asset listings, portfolios, order books, trade histories, community suggestions, and voting for EurekaHacks 2026.',
     image: '/images/buzzy.png',
@@ -221,7 +221,7 @@ export const projects: Project[] = [
   {
     title: 'Featured Project Three',
     description:
-      'Placeholder description of this project — what it does and the problem it solves goes here.',
+      'A concise description of this project and the problem it solves.',
     result: 'Placeholder role and result summary goes here.',
     image: '/images/project-placeholder-3.svg',
     imageAlt: 'Placeholder artwork for Featured Project Three',

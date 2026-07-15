@@ -67,6 +67,58 @@ body {
   }
 }
 
+/*
+  Ambient drift keyframes for the hero's decorative notebook doodles. Each
+  variant nudges translate/rotate a small amount and back — using the
+  individual `translate`/`rotate` properties (not `transform`) so every
+  doodle can carry its own static resting tilt via the --doodle-rot custom
+  property while still sharing one of these four keyframe definitions.
+*/
+@keyframes doodle-drift-a {
+  0%,
+  100% {
+    translate: 0 0;
+    rotate: var(--doodle-rot, 0deg);
+  }
+  50% {
+    translate: 11px -9px;
+    rotate: calc(var(--doodle-rot, 0deg) + 2deg);
+  }
+}
+@keyframes doodle-drift-b {
+  0%,
+  100% {
+    translate: 0 0;
+    rotate: var(--doodle-rot, 0deg);
+  }
+  50% {
+    translate: -13px 7px;
+    rotate: calc(var(--doodle-rot, 0deg) - 2.5deg);
+  }
+}
+@keyframes doodle-drift-c {
+  0%,
+  100% {
+    translate: 0 0;
+    rotate: var(--doodle-rot, 0deg);
+  }
+  50% {
+    translate: 9px 13px;
+    rotate: calc(var(--doodle-rot, 0deg) + 1.5deg);
+  }
+}
+@keyframes doodle-drift-d {
+  0%,
+  100% {
+    translate: 0 0;
+    rotate: var(--doodle-rot, 0deg);
+  }
+  50% {
+    translate: -10px -12px;
+    rotate: calc(var(--doodle-rot, 0deg) - 1.8deg);
+  }
+}
+
 @media (prefers-reduced-motion: reduce) {
   *,
   *::before,
