@@ -9,6 +9,18 @@ export interface CalendarDay {
   didWorkout: boolean
 }
 
+export interface WorkoutSet {
+  weightLb: number | null
+  reps: number | null
+  durationSeconds: number | null
+  distanceMeters: number | null
+}
+
+export interface WorkoutExercise {
+  name: string
+  sets: WorkoutSet[]
+}
+
 export interface HevyDashboardData {
   live: boolean
   streakDays: number
@@ -20,11 +32,21 @@ export interface HevyDashboardData {
     date: string
     durationMinutes: number
     exerciseSummary: string
+    exercises: WorkoutExercise[]
   } | null
+}
+
+interface HevyRawSet {
+  type?: string
+  weight_kg?: number | null
+  reps?: number | null
+  duration_seconds?: number | null
+  distance_meters?: number | null
 }
 
 interface HevyRawExercise {
   title?: string
+  sets?: HevyRawSet[]
 }
 
 interface HevyRawWorkout {
@@ -32,6 +54,12 @@ interface HevyRawWorkout {
   start_time: string
   end_time?: string
   exercises?: HevyRawExercise[]
+}
+
+const KG_TO_LB = 2.20462262
+
+function kgToLb(kg: number): number {
+  return Math.round(kg * KG_TO_LB * 2) / 2
 }
 
 const HEVY_API_BASE = 'https://api.hevyapp.com/v1'
@@ -85,6 +113,7 @@ function buildDashboardFromWorkouts(workouts: HevyRawWorkout[]): HevyDashboardDa
             )
           : 0,
         exerciseSummary: summarizeExercises(latest.exercises ?? []),
+        exercises: mapExercises(latest.exercises ?? []),
       }
     : null
 
@@ -97,6 +126,22 @@ function summarizeExercises(exercises: HevyRawExercise[]): string {
   const shown = names.slice(0, 3)
   const remainder = names.length - shown.length
   return remainder > 0 ? `${shown.join(', ')} +${remainder} more` : shown.join(', ')
+}
+
+function mapExercises(exercises: HevyRawExercise[]): WorkoutExercise[] {
+  return exercises
+    .filter(e => e.title)
+    .map(e => ({
+      name: e.title as string,
+      sets: (e.sets ?? [])
+        .filter(s => s.type !== 'warmup')
+        .map(s => ({
+          weightLb: typeof s.weight_kg === 'number' ? kgToLb(s.weight_kg) : null,
+          reps: typeof s.reps === 'number' ? s.reps : null,
+          durationSeconds: typeof s.duration_seconds === 'number' ? s.duration_seconds : null,
+          distanceMeters: typeof s.distance_meters === 'number' ? s.distance_meters : null,
+        })),
+    }))
 }
 
 /** Deterministic Mon/Wed/Fri/Sat training pattern, used only when live Hevy data is unavailable. */
@@ -126,6 +171,7 @@ function buildPlaceholderDashboard(): HevyDashboardData {
         date: lastWorkoutDate,
         durationMinutes: lately.training.placeholderWorkout.durationMinutes,
         exerciseSummary: lately.training.placeholderWorkout.exerciseSummary,
+        exercises: lately.training.placeholderWorkout.exercises,
       }
     : null
 

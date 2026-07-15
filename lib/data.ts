@@ -11,6 +11,7 @@ export const navLinks: NavLink[] = [
   { href: '#about', label: 'About' },
   { href: '#work', label: 'Work' },
   { href: '#projects', label: 'Projects' },
+  { href: '#personal', label: 'Personal' },
   { href: '#contact', label: 'Contact' },
 ]
 
@@ -42,14 +43,15 @@ export const hero = {
     'Your short placeholder sentence goes here — a one-liner about what you build, study, or care about.',
   primaryCta: { label: 'View My Work', href: '#projects' },
   secondaryCta: { label: 'Résumé', href: '/resume.pdf' },
-  portraitAlt: 'Placeholder portrait photo of Nicholas',
+  portraitSrc: '/images/portrait.jpg',
+  portraitAlt: 'Portrait photo of Nicholas',
 }
 
 export const about = {
   heading: 'About',
   paragraphs: [
-    'Your short introduction goes here. This paragraph should describe your background, what motivates you, and the kind of work you enjoy — replace with real biography content.',
-    'A second placeholder paragraph goes here, covering your technical interests: the languages, tools, or problem spaces you gravitate toward.',
+    "Hey, I'm Nick. I'm starting Management Engineering at the University of Waterloo this fall, where I'm interested in AI systems, LLMs, machine learning, and full-stack development.",
+    "Currently, I'm a Software Engineering Intern at Appli AI and conduct AI safety research focused on RAG and self-improving harnesses. Away from my keyboard, you'll usually find me at the gym, playing guitar, competing at hackathons, or hanging out with friends.",
   ],
   technicalInterests: ['Placeholder Interest One', 'Placeholder Interest Two', 'Placeholder Interest Three'],
   tags: ['Tag One', 'Tag Two', 'Tag Three', 'Tag Four', 'Tag Five'],
@@ -73,6 +75,30 @@ export const lately = {
       title: 'Placeholder Push Day',
       durationMinutes: 52,
       exerciseSummary: 'Bench press, incline dumbbell press, lateral raises',
+      exercises: [
+        {
+          name: 'Bench Press (Barbell)',
+          sets: [
+            { weightLb: 135, reps: 8, durationSeconds: null, distanceMeters: null },
+            { weightLb: 135, reps: 8, durationSeconds: null, distanceMeters: null },
+            { weightLb: 135, reps: 6, durationSeconds: null, distanceMeters: null },
+          ],
+        },
+        {
+          name: 'Incline Dumbbell Press',
+          sets: [
+            { weightLb: 50, reps: 10, durationSeconds: null, distanceMeters: null },
+            { weightLb: 50, reps: 9, durationSeconds: null, distanceMeters: null },
+          ],
+        },
+        {
+          name: 'Lateral Raise (Machine)',
+          sets: [
+            { weightLb: 30, reps: 12, durationSeconds: null, distanceMeters: null },
+            { weightLb: 30, reps: 11, durationSeconds: null, distanceMeters: null },
+          ],
+        },
+      ],
     },
   },
   spotify: {

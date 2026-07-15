@@ -59,22 +59,6 @@ function TrainingContent({ data }: { data: HevyDashboardData }) {
           <dd className="mt-1 font-playfair text-lg font-semibold text-ink">{data.workoutsThisMonth}</dd>
         </div>
       </dl>
-
-      <div className="mt-4 border-t border-border pt-4">
-        {data.mostRecent ? (
-          <>
-            <div className="flex items-baseline justify-between gap-2">
-              <p className="truncate text-sm font-medium text-ink">{data.mostRecent.title}</p>
-              <p className="flex-shrink-0 text-xs text-ink-faint">{formatShortDate(data.mostRecent.date)}</p>
-            </div>
-            <p className="mt-1 text-xs leading-5 text-ink-muted">
-              {data.mostRecent.durationMinutes} min · {data.mostRecent.exerciseSummary}
-            </p>
-          </>
-        ) : (
-          <p className="text-sm text-ink-faint">No workouts logged yet.</p>
-        )}
-      </div>
     </div>
   )
 }
@@ -102,7 +86,3 @@ function TrainingUnavailable() {
   )
 }
 
-function formatShortDate(iso: string): string {
-  const [y, m, d] = iso.split('-').map(Number)
-  return new Date(y, m - 1, d).toLocaleDateString('en-US', { month: 'short', day: 'numeric' })
-}

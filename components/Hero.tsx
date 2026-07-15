@@ -49,7 +49,7 @@ export default function Hero() {
         <motion.div variants={childVariants} className="mb-8">
           <div className="relative h-32 w-32 overflow-hidden rounded-full border border-border bg-surface-raised shadow-sm md:h-36 md:w-36">
             <Image
-              src="/images/portrait-placeholder.svg"
+              src={hero.portraitSrc}
               alt={hero.portraitAlt}
               fill
               sizes="144px"
