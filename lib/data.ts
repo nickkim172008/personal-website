@@ -28,7 +28,7 @@ export const socialLinks: SocialLink[] = [
 ]
 
 export const site = {
-  name: 'Nicholas',
+  name: 'Nick',
   fullName: 'Nicholas [Kim]',
   title: 'Your short professional title goes here',
   description:
@@ -60,6 +60,14 @@ export const about = {
   ],
   technicalInterests: ['Placeholder Interest One', 'Placeholder Interest Two', 'Placeholder Interest Three'],
   tags: ['Tag One', 'Tag Two', 'Tag Three', 'Tag Four', 'Tag Five'],
+  gallery: [
+    { src: '/images/gallery/golf.jpeg', alt: 'Lining up a putt on the green with a friend' },
+    { src: '/images/gallery/hockey.jpeg', alt: 'Carrying the puck during a hockey game' },
+    { src: '/images/gallery/hackathon.jpeg', alt: 'Posing with laptops at a hackathon judging round' },
+    { src: '/images/gallery/waterloo.jpeg', alt: 'With friends in University of Waterloo gear' },
+    { src: '/images/gallery/soccer.jpeg', alt: 'At a soccer match with family' },
+    { src: '/images/gallery/nomad-pitch.jpeg', alt: 'Presenting the Nomad project at a hackathon whiteboard' },
+  ],
 }
 
 // Content and links for the "Lately" dashboard on the About section — a set of
@@ -186,7 +194,6 @@ export interface Project {
   sourceHref?: string
   sourceLabel?: string
   devpostHref?: string
-  featured?: boolean
 }
 
 export const projects: Project[] = [
@@ -203,31 +210,18 @@ export const projects: Project[] = [
     sourceHref: 'https://github.com/nickkim172008/nomad',
     sourceLabel: 'View source',
     devpostHref: 'https://devpost.com/software/nomad-nrgx3l',
-    featured: true,
   },
   {
     title: 'Buzzy',
     description:
       'A social market where users discover trends and trade virtual shares using in-app tokens.',
-    result:
-      'Co-built a full-stack virtual marketplace with real-time asset listings, portfolios, order books, trade histories, community suggestions, and voting for EurekaHacks 2026.',
+    result: 'Co-built a full-stack marketplace with live trading and voting for EurekaHacks 2026.',
     image: '/images/buzzy.png',
     imageAlt: 'Buzzy virtual marketplace trading dashboard',
     tags: ['Next.js', 'TypeScript', 'Firebase'],
     demoHref: 'https://buzzly-zeta.vercel.app',
     sourceHref: 'https://github.com/nickkim172008/buzzy',
     devpostHref: 'https://devpost.com/software/buzzy-xd1w2u',
-  },
-  {
-    title: 'Featured Project Three',
-    description:
-      'A concise description of this project and the problem it solves.',
-    result: 'Placeholder role and result summary goes here.',
-    image: '/images/project-placeholder-3.svg',
-    imageAlt: 'Placeholder artwork for Featured Project Three',
-    tags: ['Tech One', 'Tech Two', 'Tech Three'],
-    demoHref: 'https://example.com/demo-three',
-    sourceHref: 'https://github.com/your-username/project-three',
   },
 ]
 

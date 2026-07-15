@@ -1,6 +1,7 @@
 'use client'
 
 import { useState } from 'react'
+import Image from 'next/image'
 import { Github, Linkedin, FileText, Menu, X } from 'lucide-react'
 import { navLinks, socialLinks, site } from '@/lib/data'
 import { useActiveSection } from '@/lib/useActiveSection'
@@ -38,9 +39,20 @@ export default function Header() {
           <a
             href="#top"
             onClick={handleLogoClick}
-            className="font-playfair text-lg font-bold tracking-tight text-ink"
+            className="group relative inline-flex items-center font-playfair text-lg font-bold tracking-tight text-ink"
           >
-            {site.name}
+            <span className="opacity-100 transition-opacity duration-300 ease-out group-hover:opacity-0">
+              {site.name}
+            </span>
+            <span className="absolute inset-y-0 left-0 flex items-center opacity-0 transition-opacity duration-300 ease-out group-hover:opacity-100">
+              <Image
+                src="/images/korea-flag.png"
+                alt={site.name}
+                width={36}
+                height={24}
+                className="rounded-[2px] shadow-sm"
+              />
+            </span>
           </a>
 
           <ul className="hidden items-center gap-6 md:flex">

@@ -1,6 +1,7 @@
 import { about } from '@/lib/data'
 import Image from 'next/image'
 import Reveal from './Reveal'
+import PhotoStack from './PhotoStack'
 
 function AboutParagraph({ text }: { text: string }) {
   const universityName = about.waterloo.name
@@ -35,37 +36,43 @@ export default function About() {
           <p className="text-sm font-medium uppercase tracking-[0.2em] text-accent">{about.heading}</p>
         </Reveal>
 
-        <div className="mt-8 max-w-2xl">
-          {about.paragraphs.map((paragraph, i) => (
-            <Reveal key={paragraph} delay={i * 0.08}>
-              <p className="mt-4 text-base leading-7 text-ink-muted first:mt-0 md:text-lg">
-                <AboutParagraph text={paragraph} />
-              </p>
+        <div className="mt-8 flex flex-col gap-12 md:flex-row md:items-start md:justify-between md:gap-10">
+          <div className="max-w-2xl">
+            {about.paragraphs.map((paragraph, i) => (
+              <Reveal key={paragraph} delay={i * 0.08}>
+                <p className="mt-4 text-base leading-7 text-ink-muted first:mt-0 md:text-lg">
+                  <AboutParagraph text={paragraph} />
+                </p>
+              </Reveal>
+            ))}
+
+            <Reveal delay={0.16}>
+              <div className="mt-10">
+                <h3 className="font-playfair text-lg font-semibold text-ink">Technical interests</h3>
+                <ul className="mt-3 space-y-2 text-sm text-ink-muted">
+                  {about.technicalInterests.map(interest => (
+                    <li key={interest} className="flex items-center gap-2">
+                      <span className="h-1 w-1 rounded-full bg-accent" aria-hidden="true" />
+                      {interest}
+                    </li>
+                  ))}
+                </ul>
+              </div>
             </Reveal>
-          ))}
 
-          <Reveal delay={0.16}>
-            <div className="mt-10">
-              <h3 className="font-playfair text-lg font-semibold text-ink">Technical interests</h3>
-              <ul className="mt-3 space-y-2 text-sm text-ink-muted">
-                {about.technicalInterests.map(interest => (
-                  <li key={interest} className="flex items-center gap-2">
-                    <span className="h-1 w-1 rounded-full bg-accent" aria-hidden="true" />
-                    {interest}
-                  </li>
+            <Reveal delay={0.22}>
+              <div className="mt-8 flex flex-wrap gap-2">
+                {about.tags.map(tag => (
+                  <span key={tag} className="rounded-full border border-border px-3 py-1 text-xs text-ink-muted">
+                    {tag}
+                  </span>
                 ))}
-              </ul>
-            </div>
-          </Reveal>
+              </div>
+            </Reveal>
+          </div>
 
-          <Reveal delay={0.22}>
-            <div className="mt-8 flex flex-wrap gap-2">
-              {about.tags.map(tag => (
-                <span key={tag} className="rounded-full border border-border px-3 py-1 text-xs text-ink-muted">
-                  {tag}
-                </span>
-              ))}
-            </div>
+          <Reveal delay={0.1} className="self-center md:shrink-0 md:self-start">
+            <PhotoStack />
           </Reveal>
         </div>
       </div>

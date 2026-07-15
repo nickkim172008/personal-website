@@ -18,17 +18,13 @@ export default function ProjectCard({ project, reversed = false }: ProjectCardPr
   const { scrollYProgress } = useScroll({ target: ref, offset: ['start end', 'end start'] })
   const parallaxY = useTransform(scrollYProgress, [0, 1], [shouldReduceMotion ? 0 : -24, shouldReduceMotion ? 0 : 24])
 
-  const imageSizes = project.featured
-    ? '(min-width: 1024px) 42rem, 100vw'
-    : '(min-width: 1024px) 32rem, 100vw'
+  const imageSizes = '(min-width: 1024px) 42rem, 100vw'
 
   return (
     <div
       ref={ref}
-      className={`grid grid-cols-1 items-center gap-8 lg:gap-14 ${
-        project.featured
-          ? 'lg:grid-cols-[1.15fr_1fr]'
-          : `lg:grid-cols-2 ${reversed ? 'lg:[&>*:first-child]:order-2' : ''}`
+      className={`grid grid-cols-1 items-center gap-8 lg:grid-cols-[1.15fr_1fr] lg:gap-14 ${
+        reversed ? 'lg:[&>*:first-child]:order-2' : ''
       }`}
     >
       <Reveal y={32}>
@@ -38,9 +34,7 @@ export default function ProjectCard({ project, reversed = false }: ProjectCardPr
             target="_blank"
             rel="noopener noreferrer"
             aria-label={`Open ${project.title} live demo`}
-            className={`group relative block overflow-hidden rounded-2xl border border-border bg-surface-raised shadow-sm focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent focus-visible:ring-offset-4 focus-visible:ring-offset-surface ${
-              project.featured ? 'aspect-[16/11]' : 'aspect-[16/10]'
-            }`}
+            className="group relative block aspect-[16/11] overflow-hidden rounded-2xl border border-border bg-surface-raised shadow-sm focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent focus-visible:ring-offset-4 focus-visible:ring-offset-surface"
           >
             <motion.div style={{ y: parallaxY }} className="absolute inset-0 transition-transform duration-300 group-hover:scale-[1.02]">
               <Image
@@ -53,11 +47,7 @@ export default function ProjectCard({ project, reversed = false }: ProjectCardPr
             </motion.div>
           </a>
         ) : (
-          <div
-          className={`relative overflow-hidden rounded-2xl border border-border bg-surface-raised shadow-sm ${
-            project.featured ? 'aspect-[16/11]' : 'aspect-[16/10]'
-          }`}
-        >
+          <div className="relative aspect-[16/11] overflow-hidden rounded-2xl border border-border bg-surface-raised shadow-sm">
           <motion.div style={{ y: parallaxY }} className="absolute inset-0">
             <Image
               src={project.image}
@@ -72,15 +62,8 @@ export default function ProjectCard({ project, reversed = false }: ProjectCardPr
       </Reveal>
 
       <Reveal delay={0.1}>
-        <div className={project.featured ? '' : ''}>
-          {project.featured && (
-            <span className="mb-3 inline-block rounded-full bg-accent-soft px-3 py-1 text-xs font-medium uppercase tracking-wide text-accent">
-              Featured
-            </span>
-          )}
-          <h3 className={`font-playfair font-bold text-ink ${project.featured ? 'text-3xl md:text-4xl' : 'text-2xl'}`}>
-            {project.title}
-          </h3>
+        <div>
+          <h3 className="font-playfair text-3xl font-bold text-ink md:text-4xl">{project.title}</h3>
           <p className="mt-4 max-w-xl text-sm leading-6 text-ink-muted md:text-base">{project.description}</p>
           <p className="mt-3 text-sm font-medium text-ink">{project.result}</p>
 
