@@ -89,6 +89,16 @@ const doodles: Doodle[] = [
     visibility: 'hidden lg:block',
     animation: 'motion-safe:animate-[doodle-drift-c_10.5s_ease-in-out_infinite]',
   },
+  {
+    name: 'volleyball',
+    src: '/images/doodles/volleyball.png',
+    width: 58,
+    height: 58,
+    rotate: '6deg',
+    position: 'top-[32%] right-[5%]',
+    visibility: 'hidden lg:block',
+    animation: 'motion-safe:animate-[doodle-drift-d_9.5s_ease-in-out_infinite]',
+  },
 ]
 
 export default function HeroDoodles() {
