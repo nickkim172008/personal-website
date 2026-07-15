@@ -31,7 +31,7 @@ export default function Contact() {
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify(data),
       })
-      const body = await res.json()
+      const body = (await res.json()) as { error?: string }
 
       if (!res.ok) {
         setStatus('error')
@@ -156,7 +156,7 @@ export default function Contact() {
               {status === 'success' && (
                 <p className="flex items-center gap-1.5 text-sm font-medium text-ink" role="status">
                   <CheckCircle2 size={16} className="text-accent" aria-hidden="true" />
-                  Message sent — I'll get back to you soon.
+                  Message sent — I&apos;ll get back to you soon.
                 </p>
               )}
 
