@@ -1,6 +1,4 @@
-// Single typed source of truth for all site copy, links, and placeholder content.
-// Replace the placeholder strings here to personalize the site — no layout
-// component needs to change.
+// Central source of truth for the site's copy, links, and content.
 
 export interface NavLink {
   href: string
@@ -11,7 +9,7 @@ export const navLinks: NavLink[] = [
   { href: '#about', label: 'About' },
   { href: '#work', label: 'Work' },
   { href: '#projects', label: 'Projects' },
-  { href: '#personal', label: 'Hobbies' },
+  { href: '#hobbies', label: 'Hobbies' },
   { href: '#contact', label: 'Contact' },
 ]
 
@@ -76,49 +74,14 @@ export const about = {
   ],
 }
 
-// Content and links for the "Lately" dashboard on the About section — a set of
-// small live/placeholder cards (training and guitar) that stand in
-// for a repeated portrait. Real API data is fetched server-side in
-// lib/hevy.ts; the fields below are used either as direct
-// config (links, guitar card) or as the fallback content those fetchers
-// return when credentials are absent or a request fails.
-export const lately = {
-  heading: 'Lately',
+// Content and links for the Hobbies cards. Live training data is fetched
+// server-side in lib/hevy.ts; the remaining fields configure external links
+// and the guitar card.
+export const hobbies = {
   training: {
     heading: 'Training',
     hevyProfileHref: 'https://hevy.com/user/kimmer17',
     profileLinkLabel: 'Open my Hevy training profile in a new tab',
-    // Used to fill in the "most recent workout" slot of the placeholder
-    // dashboard returned by lib/hevy.ts when HEVY_API_KEY is not configured.
-    placeholderWorkout: {
-      title: 'Placeholder Push Day',
-      durationMinutes: 52,
-      exerciseSummary: 'Bench press, incline dumbbell press, lateral raises',
-      exercises: [
-        {
-          name: 'Bench Press (Barbell)',
-          sets: [
-            { weightLb: 135, reps: 8, durationSeconds: null, distanceMeters: null },
-            { weightLb: 135, reps: 8, durationSeconds: null, distanceMeters: null },
-            { weightLb: 135, reps: 6, durationSeconds: null, distanceMeters: null },
-          ],
-        },
-        {
-          name: 'Incline Dumbbell Press',
-          sets: [
-            { weightLb: 50, reps: 10, durationSeconds: null, distanceMeters: null },
-            { weightLb: 50, reps: 9, durationSeconds: null, distanceMeters: null },
-          ],
-        },
-        {
-          name: 'Lateral Raise (Machine)',
-          sets: [
-            { weightLb: 30, reps: 12, durationSeconds: null, distanceMeters: null },
-            { weightLb: 30, reps: 11, durationSeconds: null, distanceMeters: null },
-          ],
-        },
-      ],
-    },
   },
   guitar: {
     heading: 'Guitar',

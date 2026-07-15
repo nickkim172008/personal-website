@@ -1,5 +1,3 @@
-import { lately } from './data'
-
 // Server-only module: reads HEVY_API_KEY from the environment and talks to
 // the Hevy API. Never import this from a client component — it is only ever
 // called from app/api/hevy/route.ts, which keeps the key on the server.
@@ -68,15 +66,11 @@ export async function getHevyDashboard(): Promise<HevyDashboardData> {
   const apiKey = process.env.HEVY_API_KEY
 
   if (!apiKey) {
-    return buildPlaceholderDashboard()
+    throw new Error('HEVY_API_KEY is not configured')
   }
 
-  try {
-    const workouts = await fetchRecentWorkouts(apiKey)
-    return buildDashboardFromWorkouts(workouts)
-  } catch {
-    return buildPlaceholderDashboard()
-  }
+  const workouts = await fetchRecentWorkouts(apiKey)
+  return buildDashboardFromWorkouts(workouts)
 }
 
 async function fetchRecentWorkouts(apiKey: string): Promise<HevyRawWorkout[]> {
@@ -142,40 +136,6 @@ function mapExercises(exercises: HevyRawExercise[]): WorkoutExercise[] {
           distanceMeters: typeof s.distance_meters === 'number' ? s.distance_meters : null,
         })),
     }))
-}
-
-/** Deterministic Mon/Wed/Fri/Sat training pattern, used only when live Hevy data is unavailable. */
-function isPlaceholderWorkoutDay(date: Date): boolean {
-  const day = date.getDay()
-  return day === 1 || day === 3 || day === 5 || day === 6
-}
-
-function buildPlaceholderDashboard(): HevyDashboardData {
-  const today = new Date()
-  const workoutDates = new Set<string>()
-
-  const daysInMonth = new Date(today.getFullYear(), today.getMonth() + 1, 0).getDate()
-  for (let d = 1; d <= daysInMonth; d++) {
-    const date = new Date(today.getFullYear(), today.getMonth(), d)
-    if (date <= today && isPlaceholderWorkoutDay(date)) {
-      workoutDates.add(toIsoDate(date))
-    }
-  }
-
-  const stats = computeStatsFromDates(workoutDates, today)
-
-  const lastWorkoutDate = Array.from(workoutDates).sort().at(-1)
-  const mostRecent = lastWorkoutDate
-    ? {
-        title: lately.training.placeholderWorkout.title,
-        date: lastWorkoutDate,
-        durationMinutes: lately.training.placeholderWorkout.durationMinutes,
-        exerciseSummary: lately.training.placeholderWorkout.exerciseSummary,
-        exercises: lately.training.placeholderWorkout.exercises,
-      }
-    : null
-
-  return { live: false, ...stats, mostRecent }
 }
 
 function computeStatsFromDates(

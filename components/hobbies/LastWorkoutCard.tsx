@@ -1,7 +1,7 @@
 'use client'
 
 import { ExternalLink, ListChecks } from 'lucide-react'
-import { lately } from '@/lib/data'
+import { hobbies } from '@/lib/data'
 import { useJsonFetch } from '@/lib/useJsonFetch'
 import type { HevyDashboardData, WorkoutSet } from '@/lib/hevy'
 
@@ -10,7 +10,7 @@ export default function LastWorkoutCard() {
 
   return (
     <a
-      href={lately.training.hevyProfileHref}
+      href={hobbies.training.hevyProfileHref}
       target="_blank"
       rel="noopener noreferrer"
       aria-label="Open my latest workouts on Hevy"

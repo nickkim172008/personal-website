@@ -1,7 +1,7 @@
 'use client'
 
 import { Dumbbell, ExternalLink } from 'lucide-react'
-import { lately } from '@/lib/data'
+import { hobbies } from '@/lib/data'
 import { useJsonFetch } from '@/lib/useJsonFetch'
 import type { HevyDashboardData } from '@/lib/hevy'
 import CalendarGrid from './CalendarGrid'
@@ -11,16 +11,16 @@ export default function TrainingCard() {
 
   return (
     <a
-      href={lately.training.hevyProfileHref}
+      href={hobbies.training.hevyProfileHref}
       target="_blank"
       rel="noopener noreferrer"
-      aria-label={lately.training.profileLinkLabel}
+      aria-label={hobbies.training.profileLinkLabel}
       className="block rounded-2xl border border-border bg-surface-raised p-5 shadow-sm transition-all duration-200 hover:-translate-y-0.5 hover:border-accent/40 hover:shadow-md sm:p-6"
     >
       <div className="flex items-center justify-between">
         <div className="flex items-center gap-2">
           <Dumbbell size={16} className="text-accent" aria-hidden="true" />
-          <h3 className="font-playfair text-base font-semibold text-ink">{lately.training.heading}</h3>
+          <h3 className="font-playfair text-base font-semibold text-ink">{hobbies.training.heading}</h3>
         </div>
         <span className="text-ink-faint" aria-hidden="true">
           <ExternalLink size={14} aria-hidden="true" />
