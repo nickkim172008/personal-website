@@ -16,11 +16,12 @@ export default function Contact() {
   const iconFor = { github: Github, linkedin: Linkedin, x: XBrandIcon } as const
   const [status, setStatus] = useState<Status>('idle')
   const [errorMessage, setErrorMessage] = useState('')
+  const [loadedAt] = useState(() => Date.now())
 
   async function handleSubmit(e: React.FormEvent<HTMLFormElement>) {
     e.preventDefault()
     const form = e.currentTarget
-    const data = Object.fromEntries(new FormData(form)) as Record<string, string>
+    const data = { ...Object.fromEntries(new FormData(form)), loadedAt } as Record<string, string | number>
 
     setStatus('submitting')
     setErrorMessage('')
@@ -90,6 +91,12 @@ export default function Contact() {
           </div>
 
           <form onSubmit={handleSubmit} className="space-y-6">
+            {/* Honeypot — hidden from real visitors, catches bots that auto-fill every field */}
+            <div className="absolute left-[-9999px] top-auto h-0 w-0 overflow-hidden" aria-hidden="true">
+              <label htmlFor="contact-company">Company</label>
+              <input id="contact-company" name="company" type="text" tabIndex={-1} autoComplete="off" />
+            </div>
+
             <div>
               <label htmlFor="contact-name" className="text-sm font-medium text-ink">
                 Full Name
