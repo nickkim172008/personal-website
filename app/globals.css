@@ -2,26 +2,66 @@
 @tailwind components;
 @tailwind utilities;
 
+:root {
+  --color-surface: #faf7f2;
+  --color-surface-raised: #ffffff;
+  --color-ink: #211f1c;
+  --color-ink-muted: #57524c;
+  --color-ink-faint: #8a8479;
+  --color-border: #e5e0d8;
+  --color-accent: #b45309;
+  --color-accent-soft: #fdebd3;
+}
+
+.dark {
+  --color-surface: #161513;
+  --color-surface-raised: #1e1c19;
+  --color-ink: #f3f0ea;
+  --color-ink-muted: #b7b1a6;
+  --color-ink-faint: #7a7469;
+  --color-border: #322f2a;
+  --color-accent: #e0983f;
+  --color-accent-soft: #3a2c17;
+}
+
 html {
   scroll-behavior: smooth;
-  scroll-padding-top: 5rem;
+  scroll-padding-top: 5.5rem;
 }
 
 body {
-  background-color: #FAF7F2;
-  color: #2C2A27;
+  background-color: var(--color-surface);
+  color: var(--color-ink);
 }
 
 ::-webkit-scrollbar {
   width: 6px;
 }
 ::-webkit-scrollbar-track {
-  background: #FAF7F2;
+  background: var(--color-surface);
 }
 ::-webkit-scrollbar-thumb {
-  background: #C8C2B8;
+  background: var(--color-border);
   border-radius: 3px;
 }
 ::-webkit-scrollbar-thumb:hover {
-  background: #A8A29E;
+  background: var(--color-ink-faint);
+}
+
+/* Visible focus states everywhere, keyboard-only look handled via :focus-visible */
+:focus-visible {
+  outline: 2px solid var(--color-accent);
+  outline-offset: 3px;
+  border-radius: 2px;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.001ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.001ms !important;
+    scroll-behavior: auto !important;
+  }
 }

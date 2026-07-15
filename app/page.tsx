@@ -1,22 +1,24 @@
-import Navbar from '@/components/Navbar'
+import Header from '@/components/Header'
 import Hero from '@/components/Hero'
 import About from '@/components/About'
-import Experience from '@/components/Experience'
+import Work from '@/components/Work'
 import Projects from '@/components/Projects'
+import Contact from '@/components/Contact'
+import Footer from '@/components/Footer'
 
 export default function Home() {
   return (
     <>
-      <Navbar />
-      <main>
+      <a id="top" className="sr-only" aria-hidden="true" />
+      <Header />
+      <main id="main">
         <Hero />
         <About />
-        <Experience />
+        <Work />
         <Projects />
-        <footer className="px-6 md:px-16 lg:px-24 py-12 text-center text-xs text-[#9A9490]">
-          built by nick
-        </footer>
+        <Contact />
       </main>
+      <Footer />
     </>
   )
 }
