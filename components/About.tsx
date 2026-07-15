@@ -1,5 +1,31 @@
 import { about } from '@/lib/data'
+import Image from 'next/image'
 import Reveal from './Reveal'
+
+function AboutParagraph({ text }: { text: string }) {
+  const universityName = about.waterloo.name
+  const parts = text.split(universityName)
+
+  if (parts.length === 1) return <>{text}</>
+
+  return (
+    <>
+      {parts[0]}
+      <a
+        href={about.waterloo.href}
+        target="_blank"
+        rel="noreferrer"
+        className="group mx-1 inline-flex items-center gap-1.5 whitespace-nowrap font-medium text-ink underline decoration-border underline-offset-4 transition-colors hover:text-accent hover:decoration-accent focus-visible:rounded-sm focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent"
+      >
+        <span className="relative inline-block h-6 w-6 shrink-0 align-middle">
+          <Image src={about.waterloo.logo} alt="" fill sizes="24px" className="object-contain" />
+        </span>
+        {universityName}
+      </a>
+      {parts[1]}
+    </>
+  )
+}
 
 export default function About() {
   return (
@@ -12,7 +38,9 @@ export default function About() {
         <div className="mt-8 max-w-2xl">
           {about.paragraphs.map((paragraph, i) => (
             <Reveal key={paragraph} delay={i * 0.08}>
-              <p className="mt-4 text-base leading-7 text-ink-muted first:mt-0 md:text-lg">{paragraph}</p>
+              <p className="mt-4 text-base leading-7 text-ink-muted first:mt-0 md:text-lg">
+                <AboutParagraph text={paragraph} />
+              </p>
             </Reveal>
           ))}
 

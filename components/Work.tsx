@@ -1,6 +1,7 @@
 'use client'
 
 import { useRef } from 'react'
+import Image from 'next/image'
 import { motion, useScroll, useSpring, useReducedMotion } from 'framer-motion'
 import { work } from '@/lib/data'
 import Reveal from './Reveal'
@@ -44,11 +45,38 @@ export default function Work() {
                   aria-hidden="true"
                 />
                 <Reveal delay={i * 0.05}>
-                  <div className="flex flex-wrap items-baseline justify-between gap-x-4 gap-y-1">
-                    <h3 className="font-playfair text-xl font-semibold text-ink">{entry.title}</h3>
+                  <div className="flex flex-wrap items-center justify-between gap-x-4 gap-y-2">
+                    {entry.organizationHref ? (
+                      <a
+                        href={entry.organizationHref}
+                        target="_blank"
+                        rel="noreferrer"
+                        className="group flex items-center gap-3 rounded-sm focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent focus-visible:ring-offset-4 focus-visible:ring-offset-surface"
+                        aria-label={`${entry.title} at ${entry.organization} — visit website`}
+                      >
+                        <span className="relative h-9 w-9 shrink-0 overflow-hidden rounded-md border border-border bg-white">
+                          <Image src={entry.logo} alt="" fill sizes="36px" className="object-contain p-1" />
+                        </span>
+                        <h3 className="font-playfair text-xl font-semibold text-ink transition-colors group-hover:text-accent">
+                          {entry.title} <span className="font-sans text-base font-normal text-ink-faint">at</span>{' '}
+                          <span className="underline decoration-border underline-offset-4 group-hover:decoration-accent">
+                            {entry.organization}
+                          </span>
+                        </h3>
+                      </a>
+                    ) : (
+                      <div className="flex items-center gap-3">
+                        <span className="relative h-9 w-9 shrink-0 overflow-hidden rounded-md border border-border bg-white">
+                          <Image src={entry.logo} alt={entry.logoAlt} fill sizes="36px" className="object-contain p-1" />
+                        </span>
+                        <h3 className="font-playfair text-xl font-semibold text-ink">
+                          {entry.title} <span className="font-sans text-base font-normal text-ink-faint">at</span>{' '}
+                          {entry.organization}
+                        </h3>
+                      </div>
+                    )}
                     <span className="text-sm text-ink-faint">{entry.dates}</span>
                   </div>
-                  <p className="mt-1 text-sm font-medium text-accent">{entry.organization}</p>
                   <p className="mt-3 max-w-2xl text-sm leading-6 text-ink-muted md:text-base">
                     {entry.description}
                   </p>

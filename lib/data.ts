@@ -49,6 +49,11 @@ export const hero = {
 
 export const about = {
   heading: 'About',
+  waterloo: {
+    name: 'University of Waterloo',
+    href: 'https://uwaterloo.ca/engineering/',
+    logo: '/images/work/waterloo-seal.svg',
+  },
   paragraphs: [
     "Hey, I'm Nick. I'm starting Management Engineering at the University of Waterloo this fall, where I'm interested in AI systems, LLMs, machine learning, and full-stack development.",
     "Currently, I'm a Software Engineering Intern at Appli AI and conduct AI safety research focused on RAG and self-improving harnesses. Away from my keyboard, you'll usually find me at the gym, playing guitar, competing at hackathons, or hanging out with friends.",
@@ -124,6 +129,9 @@ export const lately = {
 
 export interface WorkEntry {
   organization: string
+  organizationHref?: string
+  logo: string
+  logoAlt: string
   title: string
   dates: string
   description: string
@@ -132,36 +140,37 @@ export interface WorkEntry {
 
 export const work: WorkEntry[] = [
   {
-    organization: 'Placeholder Organization One',
-    title: 'Placeholder Role Title',
-    dates: '20XX — Present',
+    organization: 'Appli AI',
+    organizationHref: 'https://applisolutions.com',
+    logo: '/images/work/appli-ai.svg',
+    logoAlt: 'Appli AI logo',
+    title: 'Software Engineering Intern',
+    dates: 'June 2026 — Present',
     description:
-      'Placeholder description of responsibilities and impact for this role goes here. Replace with real details.',
-    tags: ['Tech One', 'Tech Two', 'Tech Three'],
+      'Building AI-powered recommendation systems and backend infrastructure for a professional networking platform. Designed an eight-signal matching engine, reduced recommendation latency from hours to near real time, and strengthened platform security by fixing a production vulnerability.',
+    tags: ['Python', 'TypeScript', 'Neo4j', 'Recommendation Systems', 'Vector Embeddings', 'Backend Development'],
   },
   {
-    organization: 'Placeholder Organization Two',
-    title: 'Placeholder Role Title',
-    dates: '20XX — 20XX',
+    organization: 'Algoverse',
+    organizationHref: 'https://algoverseairesearch.org',
+    logo: '/images/work/algoverse.svg',
+    logoAlt: 'Algoverse logo',
+    title: 'Machine Learning Research Intern',
+    dates: 'June 2026 — Present',
     description:
-      'Placeholder description of responsibilities and impact for this role goes here. Replace with real details.',
-    tags: ['Tech One', 'Tech Two'],
+      'Conducting AI safety research through a competitive fellowship alongside researchers from MIT, Princeton, and Cornell. My work focuses on self-improving LLM harnesses, exploring how retrieval augmentation and adaptive evaluation can improve safety while preserving model capabilities.',
+    tags: ['Python', 'LLMs', 'AI Safety', 'RAG', 'Machine Learning', 'Research'],
   },
   {
-    organization: 'Placeholder Organization Three',
-    title: 'Placeholder Role Title',
-    dates: '20XX — 20XX',
+    organization: 'One2One Tutoring',
+    organizationHref: 'https://one2onetutoring.vercel.app/',
+    logo: '/images/work/one2one.svg',
+    logoAlt: 'One2One Tutoring logo',
+    title: 'Founder & Lead Tutor',
+    dates: 'Sept 2024 — June 2026',
     description:
-      'Placeholder description of responsibilities and impact for this role goes here. Replace with real details.',
-    tags: ['Tech One', 'Tech Two', 'Tech Three'],
-  },
-  {
-    organization: 'Placeholder Organization Four',
-    title: 'Placeholder Role Title',
-    dates: '20XX — 20XX',
-    description:
-      'Placeholder description of responsibilities and impact for this role goes here. Replace with real details.',
-    tags: ['Tech One', 'Tech Two'],
+      'Founded and grew a tutoring business that helped 18 high school students strengthen their mathematics skills, including AP Calculus. Built the business through referrals while creating personalized learning experiences and simplifying complex concepts.',
+    tags: ['Entrepreneurship', 'Teaching', 'Communication', 'Leadership', 'Mathematics'],
   },
 ]
 
