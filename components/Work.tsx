@@ -51,27 +51,29 @@ export default function Work() {
                         href={entry.organizationHref}
                         target="_blank"
                         rel="noreferrer"
-                        className="group flex items-center gap-3 rounded-sm focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent focus-visible:ring-offset-4 focus-visible:ring-offset-surface"
+                        className="group inline rounded-sm focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent focus-visible:ring-offset-4 focus-visible:ring-offset-surface"
                         aria-label={`${entry.title} at ${entry.organization} — visit website`}
                       >
-                        <span className="relative h-9 w-9 shrink-0 overflow-hidden rounded-md border border-border bg-white">
-                          <Image src={entry.logo} alt="" fill sizes="36px" className="object-contain p-1" />
-                        </span>
-                        <h3 className="font-playfair text-xl font-semibold text-ink transition-colors group-hover:text-accent">
+                        <h3 className="inline font-playfair text-xl font-semibold text-ink transition-colors group-hover:text-accent">
                           {entry.title} <span className="font-sans text-base font-normal text-ink-faint">at</span>{' '}
-                          <span className="underline decoration-border underline-offset-4 group-hover:decoration-accent">
+                          <span className="inline-flex items-center gap-2 whitespace-nowrap align-middle underline decoration-border underline-offset-4 group-hover:decoration-accent">
+                            <span className="relative inline-block h-8 w-8 shrink-0 overflow-hidden rounded-md border border-border bg-white align-middle">
+                              <Image src={entry.logo} alt="" fill sizes="32px" className="object-contain" />
+                            </span>
                             {entry.organization}
                           </span>
                         </h3>
                       </a>
                     ) : (
-                      <div className="flex items-center gap-3">
-                        <span className="relative h-9 w-9 shrink-0 overflow-hidden rounded-md border border-border bg-white">
-                          <Image src={entry.logo} alt={entry.logoAlt} fill sizes="36px" className="object-contain p-1" />
-                        </span>
-                        <h3 className="font-playfair text-xl font-semibold text-ink">
+                      <div>
+                        <h3 className="inline font-playfair text-xl font-semibold text-ink">
                           {entry.title} <span className="font-sans text-base font-normal text-ink-faint">at</span>{' '}
-                          {entry.organization}
+                          <span className="inline-flex items-center gap-2 whitespace-nowrap align-middle">
+                            <span className="relative inline-block h-8 w-8 shrink-0 overflow-hidden rounded-md border border-border bg-white align-middle">
+                              <Image src={entry.logo} alt={entry.logoAlt} fill sizes="32px" className="object-contain" />
+                            </span>
+                            {entry.organization}
+                          </span>
                         </h3>
                       </div>
                     )}

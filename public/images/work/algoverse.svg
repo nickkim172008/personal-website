@@ -1,5 +1,0 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" role="img" aria-labelledby="title">
-  <title id="title">Algoverse</title>
-  <rect width="64" height="64" rx="10" fill="#fff"/>
-  <path fill="#181818" fill-rule="evenodd" d="M32 7 58 53H43L32 33 21 52H7L32 7Zm0 17-15 27h8l7-12 7 13h10L32 24Z"/>
-</svg>

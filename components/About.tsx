@@ -15,9 +15,9 @@ function AboutParagraph({ text }: { text: string }) {
         href={about.waterloo.href}
         target="_blank"
         rel="noreferrer"
-        className="group mx-1 inline-flex items-center gap-1.5 whitespace-nowrap font-medium text-ink underline decoration-border underline-offset-4 transition-colors hover:text-accent hover:decoration-accent focus-visible:rounded-sm focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent"
+        className="group mx-1 font-medium text-ink underline decoration-border underline-offset-4 transition-colors hover:text-accent hover:decoration-accent focus-visible:rounded-sm focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent"
       >
-        <span className="relative inline-block h-6 w-6 shrink-0 align-middle">
+        <span className="relative mr-1.5 inline-block h-6 w-6 align-middle">
           <Image src={about.waterloo.logo} alt="" fill sizes="24px" className="object-contain" />
         </span>
         {universityName}

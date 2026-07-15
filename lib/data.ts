@@ -22,14 +22,14 @@ export interface SocialLink {
 }
 
 export const socialLinks: SocialLink[] = [
-  { label: 'GitHub', href: 'https://github.com/your-username', icon: 'github' },
-  { label: 'LinkedIn', href: 'https://linkedin.com/in/your-username', icon: 'linkedin' },
+  { label: 'GitHub', href: 'https://github.com/nickkim172008', icon: 'github' },
+  { label: 'LinkedIn', href: 'https://linkedin.com/in/nicholaskim17', icon: 'linkedin' },
   { label: 'Résumé', href: '/resume.pdf', icon: 'resume' },
 ]
 
 export const site = {
   name: 'Nicholas',
-  fullName: 'Nicholas [Your Last Name]',
+  fullName: 'Nicholas [Kim]',
   title: 'Your short professional title goes here',
   description:
     "Placeholder portfolio site — a short SEO description of who you are and what you build goes here.",
@@ -40,7 +40,7 @@ export const hero = {
   greeting: "Hi, I'm",
   name: site.name,
   tagline:
-    'Your short placeholder sentence goes here — a one-liner about what you build, study, or care about.',
+    'Building software, exploring AI, and learning a little more every day.',
   primaryCta: { label: 'View My Work', href: '#projects' },
   secondaryCta: { label: 'Résumé', href: '/resume.pdf' },
   portraitSrc: '/images/portrait.jpg',
@@ -72,7 +72,7 @@ export const lately = {
   heading: 'Lately',
   training: {
     heading: 'Training',
-    hevyProfileHref: 'https://hevy.com/user/your-username',
+    hevyProfileHref: 'https://hevy.com/user/kimmer17',
     profileLinkLabel: 'Open my Hevy training profile in a new tab',
     // Used to fill in the "most recent workout" slot of the placeholder
     // dashboard returned by lib/hevy.ts when HEVY_API_KEY is not configured.
@@ -142,7 +142,7 @@ export const work: WorkEntry[] = [
   {
     organization: 'Appli AI',
     organizationHref: 'https://applisolutions.com',
-    logo: '/images/work/appli-ai.svg',
+    logo: '/images/work/appli-ai.png',
     logoAlt: 'Appli AI logo',
     title: 'Software Engineering Intern',
     dates: 'June 2026 — Present',
@@ -153,7 +153,7 @@ export const work: WorkEntry[] = [
   {
     organization: 'Algoverse',
     organizationHref: 'https://algoverseairesearch.org',
-    logo: '/images/work/algoverse.svg',
+    logo: '/images/work/algoverse.jpeg',
     logoAlt: 'Algoverse logo',
     title: 'Machine Learning Research Intern',
     dates: 'June 2026 — Present',
@@ -164,7 +164,7 @@ export const work: WorkEntry[] = [
   {
     organization: 'One2One Tutoring',
     organizationHref: 'https://one2onetutoring.vercel.app/',
-    logo: '/images/work/one2one.svg',
+    logo: '/images/work/one2one.png',
     logoAlt: 'One2One Tutoring logo',
     title: 'Founder & Lead Tutor',
     dates: 'Sept 2024 — June 2026',
