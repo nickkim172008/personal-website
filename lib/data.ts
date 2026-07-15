@@ -18,13 +18,13 @@ export const navLinks: NavLink[] = [
 export interface SocialLink {
   label: string
   href: string
-  icon: 'github' | 'linkedin' | 'resume' | 'email'
+  icon: 'github' | 'linkedin' | 'x'
 }
 
 export const socialLinks: SocialLink[] = [
   { label: 'GitHub', href: 'https://github.com/nickkim172008', icon: 'github' },
   { label: 'LinkedIn', href: 'https://linkedin.com/in/nicholaskim17', icon: 'linkedin' },
-  { label: 'Résumé', href: '/resume.pdf', icon: 'resume' },
+  { label: 'X', href: 'https://x.com/nkimmer_17', icon: 'x' },
 ]
 
 export const site = {
@@ -33,7 +33,7 @@ export const site = {
   title: 'Your short professional title goes here',
   description:
     "Placeholder portfolio site — a short SEO description of who you are and what you build goes here.",
-  email: 'your.email@example.com',
+  email: 'nicholskimto@gmail.com',
 }
 
 export const hero = {
@@ -54,12 +54,19 @@ export const about = {
     href: 'https://uwaterloo.ca/engineering/',
     logo: '/images/work/waterloo-seal.svg',
   },
+  appliAI: {
+    name: 'Appli AI',
+    href: 'https://applisolutions.com',
+    logo: '/images/work/appli-ai.png',
+  },
   paragraphs: [
     "Hey, I'm Nick. I'm starting Management Engineering at the University of Waterloo this fall, where I'm interested in AI systems, LLMs, machine learning, and full-stack development.",
     "Currently, I'm a Software Engineering Intern at Appli AI and conduct AI safety research focused on RAG and self-improving harnesses. Away from my keyboard, you'll usually find me at the gym, playing guitar, competing at hackathons, or hanging out with friends.",
   ],
-  technicalInterests: ['Placeholder Interest One', 'Placeholder Interest Two', 'Placeholder Interest Three'],
-  tags: ['Tag One', 'Tag Two', 'Tag Three', 'Tag Four', 'Tag Five'],
+  exploring: {
+    heading: "What I'm exploring",
+    items: ['How LLMs work and reason', 'AI agents and automation', 'Building useful full-stack products'],
+  },
   gallery: [
     { src: '/images/gallery/golf.jpeg', alt: 'Lining up a putt on the green with a friend' },
     { src: '/images/gallery/hockey.jpeg', alt: 'Carrying the puck during a hockey game' },
@@ -71,9 +78,9 @@ export const about = {
 }
 
 // Content and links for the "Lately" dashboard on the About section — a set of
-// small live/placeholder cards (training, now-playing, guitar) that stand in
+// small live/placeholder cards (training and guitar) that stand in
 // for a repeated portrait. Real API data is fetched server-side in
-// lib/hevy.ts and lib/spotify.ts; the fields below are used either as direct
+// lib/hevy.ts; the fields below are used either as direct
 // config (links, guitar card) or as the fallback content those fetchers
 // return when credentials are absent or a request fails.
 export const lately = {
@@ -112,16 +119,6 @@ export const lately = {
           ],
         },
       ],
-    },
-  },
-  spotify: {
-    heading: 'Now playing',
-    // Used by lib/spotify.ts when Spotify credentials are absent or a request fails.
-    placeholderTrack: {
-      title: 'Placeholder Track Title',
-      artist: 'Placeholder Artist',
-      albumArt: '/images/spotify-album-placeholder.svg',
-      durationMs: 3 * 60 * 1000 + 24 * 1000,
     },
   },
   guitar: {
@@ -226,10 +223,12 @@ export const projects: Project[] = [
 ]
 
 export const contact = {
-  heading: "Let's talk",
+  heading: 'Contact Me',
   invitation:
-    "Placeholder invitation text goes here — a short, friendly line inviting visitors to reach out.",
-  emailCta: 'Say hello',
+    "Feel free to reach out if you'd like to discuss opportunities, have a quick coffee chat, or just say hi! I'm always looking forward to meeting new people.",
+  portraitSrc: '/images/portrait.jpg',
+  portraitAlt: 'Nicholas in front of the Golden Gate Bridge',
+  submitLabel: 'Submit',
 }
 
 export const footer = {

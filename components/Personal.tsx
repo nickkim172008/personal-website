@@ -2,7 +2,6 @@ import { lately } from '@/lib/data'
 import Reveal from './Reveal'
 import TrainingCard from './lately/TrainingCard'
 import LastWorkoutCard from './lately/LastWorkoutCard'
-import SpotifyCard from './lately/SpotifyCard'
 import GuitarCard from './lately/GuitarCard'
 
 export default function Personal() {
@@ -26,8 +25,7 @@ export default function Personal() {
           </Reveal>
 
           <Reveal delay={0.14}>
-            <div className="mt-6 grid grid-cols-1 gap-6 sm:grid-cols-2">
-              <SpotifyCard />
+            <div className="mt-6">
               <GuitarCard />
             </div>
           </Reveal>
