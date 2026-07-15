@@ -6,7 +6,6 @@ export default function Footer() {
       <div className="mx-auto flex max-w-content flex-col items-center gap-6 text-center">
         <div className="flex flex-col items-center gap-1 text-xs text-ink-faint">
           <p>{footer.attribution}</p>
-          <p>{footer.lastUpdated}</p>
         </div>
       </div>
     </footer>

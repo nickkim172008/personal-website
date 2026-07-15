@@ -1,3 +1,5 @@
+import { hobbies } from './data'
+
 // Server-only module: reads HEVY_API_KEY from the environment and talks to
 // the Hevy API. Never import this from a client component — it is only ever
 // called from app/api/hevy/route.ts, which keeps the key on the server.
@@ -66,11 +68,16 @@ export async function getHevyDashboard(): Promise<HevyDashboardData> {
   const apiKey = process.env.HEVY_API_KEY
 
   if (!apiKey) {
-    throw new Error('HEVY_API_KEY is not configured')
+    return buildFallbackDashboard()
   }
 
-  const workouts = await fetchRecentWorkouts(apiKey)
-  return buildDashboardFromWorkouts(workouts)
+  try {
+    const workouts = await fetchRecentWorkouts(apiKey)
+    return buildDashboardFromWorkouts(workouts)
+  } catch (error) {
+    console.error('Unable to load live Hevy data; using preview data:', error)
+    return buildFallbackDashboard()
+  }
 }
 
 async function fetchRecentWorkouts(apiKey: string): Promise<HevyRawWorkout[]> {
@@ -136,6 +143,38 @@ function mapExercises(exercises: HevyRawExercise[]): WorkoutExercise[] {
           distanceMeters: typeof s.distance_meters === 'number' ? s.distance_meters : null,
         })),
     }))
+}
+
+function buildFallbackDashboard(): HevyDashboardData {
+  const today = new Date()
+  const workoutDates = new Set<string>()
+  const daysInMonth = new Date(today.getFullYear(), today.getMonth() + 1, 0).getDate()
+
+  for (let day = 1; day <= daysInMonth; day++) {
+    const date = new Date(today.getFullYear(), today.getMonth(), day)
+    const weekday = date.getDay()
+    if (date <= today && [1, 3, 5, 6].includes(weekday)) {
+      workoutDates.add(toIsoDate(date))
+    }
+  }
+
+  const stats = computeStatsFromDates(workoutDates, today)
+  const latestDate = Array.from(workoutDates).sort().at(-1)
+  const fallback = hobbies.training.fallbackWorkout
+
+  return {
+    live: false,
+    ...stats,
+    mostRecent: latestDate
+      ? {
+          title: fallback.title,
+          date: latestDate,
+          durationMinutes: fallback.durationMinutes,
+          exerciseSummary: fallback.exerciseSummary,
+          exercises: fallback.exercises,
+        }
+      : null,
+  }
 }
 
 function computeStatsFromDates(

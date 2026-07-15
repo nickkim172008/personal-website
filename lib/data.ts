@@ -79,9 +79,38 @@ export const about = {
 // and the guitar card.
 export const hobbies = {
   training: {
-    heading: 'Training',
+    heading: 'Gym',
     hevyProfileHref: 'https://hevy.com/user/kimmer17',
     profileLinkLabel: 'Open my Hevy training profile in a new tab',
+    fallbackWorkout: {
+      title: 'Push Day',
+      durationMinutes: 52,
+      exerciseSummary: 'Bench press, incline dumbbell press, lateral raises',
+      exercises: [
+        {
+          name: 'Bench Press (Barbell)',
+          sets: [
+            { weightLb: 135, reps: 8, durationSeconds: null, distanceMeters: null },
+            { weightLb: 135, reps: 8, durationSeconds: null, distanceMeters: null },
+            { weightLb: 135, reps: 6, durationSeconds: null, distanceMeters: null },
+          ],
+        },
+        {
+          name: 'Incline Dumbbell Press',
+          sets: [
+            { weightLb: 50, reps: 10, durationSeconds: null, distanceMeters: null },
+            { weightLb: 50, reps: 9, durationSeconds: null, distanceMeters: null },
+          ],
+        },
+        {
+          name: 'Lateral Raise (Machine)',
+          sets: [
+            { weightLb: 30, reps: 12, durationSeconds: null, distanceMeters: null },
+            { weightLb: 30, reps: 11, durationSeconds: null, distanceMeters: null },
+          ],
+        },
+      ],
+    },
   },
   guitar: {
     heading: 'Guitar',

@@ -39,20 +39,24 @@ export default function Header() {
           <a
             href="#top"
             onClick={handleLogoClick}
-            className="group relative inline-flex items-center font-playfair text-lg font-bold tracking-tight text-ink"
+            aria-label={`${site.name} — back to top`}
+            className="group relative inline-flex h-8 w-8 items-center justify-center transition-transform duration-150 hover:scale-105 active:scale-95"
           >
-            <span className="opacity-100 transition-opacity duration-300 ease-out group-hover:opacity-0">
-              {site.name}
-            </span>
-            <span className="absolute inset-y-0 left-0 flex items-center opacity-0 transition-opacity duration-300 ease-out group-hover:opacity-100">
-              <Image
-                src="/images/korea-flag.png"
-                alt={site.name}
-                width={36}
-                height={24}
-                className="rounded-[2px] shadow-sm"
-              />
-            </span>
+            <Image
+              src="/favicon.svg"
+              alt=""
+              width={32}
+              height={32}
+              priority
+              className="transition-opacity duration-200 group-hover:opacity-0"
+            />
+            <Image
+              src="/images/korea-flag.png"
+              alt=""
+              width={32}
+              height={21}
+              className="absolute rounded-sm opacity-0 shadow-sm transition-opacity duration-200 group-hover:opacity-100"
+            />
           </a>
 
           <ul className="hidden items-center gap-6 md:flex">
