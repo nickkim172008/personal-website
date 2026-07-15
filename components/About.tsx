@@ -46,7 +46,7 @@ export default function About() {
           <div className="max-w-2xl">
             {about.paragraphs.map((paragraph, i) => (
               <Reveal key={paragraph} delay={i * 0.08}>
-                <p className="mt-5 text-lg leading-8 text-ink-muted first:mt-0 md:text-xl">
+                <p className={`${i === 0 ? '' : 'mt-6'} text-lg leading-8 text-ink-muted md:text-xl`}>
                   <AboutParagraph text={paragraph} />
                 </p>
               </Reveal>
