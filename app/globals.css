@@ -55,6 +55,16 @@ body {
   border-radius: 2px;
 }
 
+@keyframes eq {
+  0%,
+  100% {
+    transform: scaleY(0.4);
+  }
+  50% {
+    transform: scaleY(1);
+  }
+}
+
 @media (prefers-reduced-motion: reduce) {
   *,
   *::before,

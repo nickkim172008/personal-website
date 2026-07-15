@@ -50,12 +50,50 @@ export const about = {
   paragraphs: [
     'Your short introduction goes here. This paragraph should describe your background, what motivates you, and the kind of work you enjoy — replace with real biography content.',
     'A second placeholder paragraph goes here, covering your technical interests: the languages, tools, or problem spaces you gravitate toward.',
-    'A third placeholder paragraph goes here, covering personal interests outside of work — hobbies, communities, or anything that rounds out who you are.',
   ],
   technicalInterests: ['Placeholder Interest One', 'Placeholder Interest Two', 'Placeholder Interest Three'],
-  personalInterests: ['Placeholder Hobby One', 'Placeholder Hobby Two', 'Placeholder Hobby Three'],
   tags: ['Tag One', 'Tag Two', 'Tag Three', 'Tag Four', 'Tag Five'],
-  portraitAlt: 'Placeholder photo used on the About section',
+}
+
+// Content and links for the "Lately" dashboard on the About section — a set of
+// small live/placeholder cards (training, now-playing, guitar) that stand in
+// for a repeated portrait. Real API data is fetched server-side in
+// lib/hevy.ts and lib/spotify.ts; the fields below are used either as direct
+// config (links, guitar card) or as the fallback content those fetchers
+// return when credentials are absent or a request fails.
+export const lately = {
+  heading: 'Lately',
+  training: {
+    heading: 'Training',
+    hevyProfileHref: 'https://hevy.com/user/your-username',
+    profileLinkLabel: 'Open my Hevy training profile in a new tab',
+    // Used to fill in the "most recent workout" slot of the placeholder
+    // dashboard returned by lib/hevy.ts when HEVY_API_KEY is not configured.
+    placeholderWorkout: {
+      title: 'Placeholder Push Day',
+      durationMinutes: 52,
+      exerciseSummary: 'Bench press, incline dumbbell press, lateral raises',
+    },
+  },
+  spotify: {
+    heading: 'Now playing',
+    // Used by lib/spotify.ts when Spotify credentials are absent or a request fails.
+    placeholderTrack: {
+      title: 'Placeholder Track Title',
+      artist: 'Placeholder Artist',
+      albumArt: '/images/spotify-album-placeholder.svg',
+      durationMs: 3 * 60 * 1000 + 24 * 1000,
+    },
+  },
+  guitar: {
+    heading: 'Guitar',
+    image: '/images/guitar-placeholder.svg',
+    imageAlt: 'Placeholder thumbnail of an acoustic guitar',
+    sentence: 'A short placeholder sentence about playing guitar and posting covers goes here.',
+    tiktokHandle: '@your-tiktok-handle',
+    tiktokHref: 'https://www.tiktok.com/@your-tiktok-handle',
+    cta: 'Watch my covers',
+  },
 }
 
 export interface WorkEntry {

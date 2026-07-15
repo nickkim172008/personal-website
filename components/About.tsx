@@ -1,6 +1,6 @@
-import Image from 'next/image'
 import { about } from '@/lib/data'
 import Reveal from './Reveal'
+import LatelyDashboard from './LatelyDashboard'
 
 export default function About() {
   return (
@@ -10,7 +10,7 @@ export default function About() {
           <p className="text-sm font-medium uppercase tracking-[0.2em] text-accent">{about.heading}</p>
         </Reveal>
 
-        <div className="mt-8 grid grid-cols-1 gap-12 md:grid-cols-[minmax(0,1fr)_18rem] md:gap-16">
+        <div className="mt-8 grid grid-cols-1 items-start gap-14 lg:grid-cols-[3fr_2fr] lg:gap-16">
           <div>
             {about.paragraphs.map((paragraph, i) => (
               <Reveal key={paragraph} delay={i * 0.08}>
@@ -21,29 +21,16 @@ export default function About() {
             ))}
 
             <Reveal delay={0.16}>
-              <div className="mt-10 grid grid-cols-1 gap-8 sm:grid-cols-2">
-                <div>
-                  <h3 className="font-playfair text-lg font-semibold text-ink">Technical interests</h3>
-                  <ul className="mt-3 space-y-2 text-sm text-ink-muted">
-                    {about.technicalInterests.map(interest => (
-                      <li key={interest} className="flex items-center gap-2">
-                        <span className="h-1 w-1 rounded-full bg-accent" aria-hidden="true" />
-                        {interest}
-                      </li>
-                    ))}
-                  </ul>
-                </div>
-                <div>
-                  <h3 className="font-playfair text-lg font-semibold text-ink">Personal interests</h3>
-                  <ul className="mt-3 space-y-2 text-sm text-ink-muted">
-                    {about.personalInterests.map(interest => (
-                      <li key={interest} className="flex items-center gap-2">
-                        <span className="h-1 w-1 rounded-full bg-accent" aria-hidden="true" />
-                        {interest}
-                      </li>
-                    ))}
-                  </ul>
-                </div>
+              <div className="mt-10">
+                <h3 className="font-playfair text-lg font-semibold text-ink">Technical interests</h3>
+                <ul className="mt-3 space-y-2 text-sm text-ink-muted">
+                  {about.technicalInterests.map(interest => (
+                    <li key={interest} className="flex items-center gap-2">
+                      <span className="h-1 w-1 rounded-full bg-accent" aria-hidden="true" />
+                      {interest}
+                    </li>
+                  ))}
+                </ul>
               </div>
             </Reveal>
 
@@ -61,17 +48,7 @@ export default function About() {
             </Reveal>
           </div>
 
-          <Reveal delay={0.1} className="order-first md:order-last">
-            <div className="relative aspect-[4/5] w-full max-w-xs overflow-hidden rounded-2xl border border-border bg-surface-raised shadow-sm md:max-w-none">
-              <Image
-                src="/images/about-placeholder.svg"
-                alt={about.portraitAlt}
-                fill
-                sizes="(min-width: 768px) 18rem, 20rem"
-                className="object-cover"
-              />
-            </div>
-          </Reveal>
+          <LatelyDashboard />
         </div>
       </div>
     </section>
