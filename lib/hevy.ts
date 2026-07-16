@@ -1,5 +1,3 @@
-import { hobbies } from './data'
-
 // Server-only module: reads HEVY_API_KEY from the environment and talks to
 // the Hevy API. Never import this from a client component — it is only ever
 // called from app/api/hevy/route.ts, which keeps the key on the server.
@@ -57,6 +55,7 @@ interface HevyRawWorkout {
 }
 
 const KG_TO_LB = 2.20462262
+const DASHBOARD_TIME_ZONE = 'America/Toronto'
 
 function kgToLb(kg: number): number {
   return Math.round(kg * KG_TO_LB * 2) / 2
@@ -68,16 +67,11 @@ export async function getHevyDashboard(): Promise<HevyDashboardData> {
   const apiKey = process.env.HEVY_API_KEY
 
   if (!apiKey) {
-    return buildFallbackDashboard()
+    throw new Error('HEVY_API_KEY is not configured')
   }
 
-  try {
-    const workouts = await fetchRecentWorkouts(apiKey)
-    return buildDashboardFromWorkouts(workouts)
-  } catch (error) {
-    console.error('Unable to load live Hevy data; using preview data:', error)
-    return buildFallbackDashboard()
-  }
+  const workouts = await fetchRecentWorkouts(apiKey)
+  return buildDashboardFromWorkouts(workouts)
 }
 
 async function fetchRecentWorkouts(apiKey: string): Promise<HevyRawWorkout[]> {
@@ -98,15 +92,15 @@ function buildDashboardFromWorkouts(workouts: HevyRawWorkout[]): HevyDashboardDa
   const sorted = [...workouts].sort(
     (a, b) => new Date(b.start_time).getTime() - new Date(a.start_time).getTime()
   )
-  const workoutDates = new Set(sorted.map(w => w.start_time.slice(0, 10)))
-  const today = new Date()
+  const workoutDates = new Set(sorted.map(w => dateInDashboardTimeZone(w.start_time)))
+  const today = fromIsoDate(dateInDashboardTimeZone(new Date()))
   const stats = computeStatsFromDates(workoutDates, today)
 
   const latest = sorted[0]
   const mostRecent = latest
     ? {
         title: latest.title || 'Workout',
-        date: latest.start_time.slice(0, 10),
+        date: dateInDashboardTimeZone(latest.start_time),
         durationMinutes: latest.end_time
           ? Math.max(
               1,
@@ -143,38 +137,6 @@ function mapExercises(exercises: HevyRawExercise[]): WorkoutExercise[] {
           distanceMeters: typeof s.distance_meters === 'number' ? s.distance_meters : null,
         })),
     }))
-}
-
-function buildFallbackDashboard(): HevyDashboardData {
-  const today = new Date()
-  const workoutDates = new Set<string>()
-  const daysInMonth = new Date(today.getFullYear(), today.getMonth() + 1, 0).getDate()
-
-  for (let day = 1; day <= daysInMonth; day++) {
-    const date = new Date(today.getFullYear(), today.getMonth(), day)
-    const weekday = date.getDay()
-    if (date <= today && [1, 3, 5, 6].includes(weekday)) {
-      workoutDates.add(toIsoDate(date))
-    }
-  }
-
-  const stats = computeStatsFromDates(workoutDates, today)
-  const latestDate = Array.from(workoutDates).sort().at(-1)
-  const fallback = hobbies.training.fallbackWorkout
-
-  return {
-    live: false,
-    ...stats,
-    mostRecent: latestDate
-      ? {
-          title: fallback.title,
-          date: latestDate,
-          durationMinutes: fallback.durationMinutes,
-          exerciseSummary: fallback.exerciseSummary,
-          exercises: fallback.exercises,
-        }
-      : null,
-  }
 }
 
 function computeStatsFromDates(
@@ -224,4 +186,19 @@ function toIsoDate(date: Date): string {
 function fromIsoDate(iso: string): Date {
   const [y, m, d] = iso.split('-').map(Number)
   return new Date(y, m - 1, d)
+}
+
+/** Convert API timestamps to the local date shown by the Toronto-based dashboard. */
+function dateInDashboardTimeZone(value: string | Date): string {
+  const parts = new Intl.DateTimeFormat('en-CA', {
+    timeZone: DASHBOARD_TIME_ZONE,
+    year: 'numeric',
+    month: '2-digit',
+    day: '2-digit',
+  }).formatToParts(typeof value === 'string' ? new Date(value) : value)
+
+  const part = (type: Intl.DateTimeFormatPartTypes) =>
+    parts.find(item => item.type === type)?.value ?? ''
+
+  return `${part('year')}-${part('month')}-${part('day')}`
 }

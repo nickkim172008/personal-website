@@ -9,7 +9,7 @@ export default function GuitarCard() {
       target="_blank"
       rel="noopener noreferrer"
       aria-label={`Watch ${hobbies.guitar.tiktokHandle}'s guitar covers on TikTok`}
-      className="block rounded-2xl border border-border bg-surface-raised p-4 shadow-sm transition-all duration-200 hover:-translate-y-0.5 hover:border-accent/40 hover:shadow-md"
+      className="block rounded-2xl border border-border bg-surface-raised p-4 shadow-sm transition-all duration-200 hover:-translate-y-0.5 hover:border-accent/40 hover:shadow-md md:h-[410px]"
     >
       <div className="flex items-center justify-between">
         <div className="flex items-center gap-2">

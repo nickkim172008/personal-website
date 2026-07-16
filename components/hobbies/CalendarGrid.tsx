@@ -20,7 +20,7 @@ export default function CalendarGrid({ days }: CalendarGridProps) {
 
   const [year, month] = days[0].date.split('-').map(Number)
   const firstWeekday = new Date(year, month - 1, 1).getDay()
-  const todayIso = toIsoDate(new Date())
+  const todayIso = toTorontoIsoDate(new Date())
   const monthLabel = new Date(year, month - 1, 1).toLocaleDateString('en-US', { month: 'long' })
 
   return (
@@ -70,9 +70,14 @@ export default function CalendarGrid({ days }: CalendarGridProps) {
   )
 }
 
-function toIsoDate(date: Date): string {
-  const y = date.getFullYear()
-  const m = String(date.getMonth() + 1).padStart(2, '0')
-  const d = String(date.getDate()).padStart(2, '0')
-  return `${y}-${m}-${d}`
+function toTorontoIsoDate(date: Date): string {
+  const parts = new Intl.DateTimeFormat('en-CA', {
+    timeZone: 'America/Toronto',
+    year: 'numeric',
+    month: '2-digit',
+    day: '2-digit',
+  }).formatToParts(date)
+  const part = (type: Intl.DateTimeFormatPartTypes) =>
+    parts.find(item => item.type === type)?.value ?? ''
+  return `${part('year')}-${part('month')}-${part('day')}`
 }

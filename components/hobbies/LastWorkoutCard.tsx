@@ -14,7 +14,7 @@ export default function LastWorkoutCard() {
       target="_blank"
       rel="noopener noreferrer"
       aria-label="Open my latest workouts on Hevy"
-      className="block rounded-2xl border border-border bg-surface-raised p-5 shadow-sm transition-all duration-200 hover:-translate-y-0.5 hover:border-accent/40 hover:shadow-md sm:p-6"
+      className="block rounded-2xl border border-border bg-surface-raised p-5 shadow-sm transition-all duration-200 hover:-translate-y-0.5 hover:border-accent/40 hover:shadow-md sm:p-6 md:flex md:h-[410px] md:flex-col md:overflow-hidden"
     >
       <div className="flex items-center justify-between">
         <div className="flex items-center gap-2">
@@ -43,13 +43,7 @@ function LastWorkoutContent({ data }: { data: HevyDashboardData }) {
   }
 
   return (
-    <div className="mt-4">
-      {!data.live && (
-        <span className="mb-3 inline-block rounded-full bg-accent-soft px-2.5 py-0.5 text-[11px] font-medium uppercase tracking-wide text-accent">
-          Preview data
-        </span>
-      )}
-
+    <div className="mt-4 md:min-h-0 md:flex-1 md:overflow-y-auto md:pr-2">
       <div className="flex items-baseline justify-between gap-2">
         <p className="text-sm font-medium text-ink">{workout.title}</p>
         <p className="flex-shrink-0 text-xs text-ink-faint">

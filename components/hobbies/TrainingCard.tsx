@@ -37,33 +37,25 @@ export default function TrainingCard() {
 function TrainingContent({ data }: { data: HevyDashboardData }) {
   return (
     <div className="mt-4">
-      {!data.live && (
-        <span className="mb-3 inline-block rounded-full bg-accent-soft px-2.5 py-0.5 text-[11px] font-medium uppercase tracking-wide text-accent">
-          Preview data
-        </span>
-      )}
-
       <CalendarGrid days={data.calendar} />
 
-      <dl className="mt-4 grid grid-cols-3 gap-2 text-center">
-        <div className="rounded-xl bg-surface px-2 py-2.5">
-          <dt className="text-[11px] uppercase tracking-wide text-ink-faint">Streak</dt>
-          <dd className="mt-1 font-playfair text-lg font-semibold text-ink">
-            {data.streakDays}d <span aria-hidden="true">🔥</span>
+      <dl className="mt-4 grid w-full grid-cols-3 gap-2 text-center">
+        <div className="grid min-h-[72px] grid-rows-[16px_28px] content-center rounded-xl bg-surface px-2 py-2.5">
+          <dt className="text-[11px] leading-4 uppercase tracking-wide text-ink-faint">Streak</dt>
+          <dd className="mt-1 font-playfair text-lg leading-7 font-semibold text-ink">
+            {data.streakDays}d <span className="inline-block leading-none" aria-hidden="true">🔥</span>
           </dd>
         </div>
-        <div className="rounded-xl bg-surface px-2 py-2.5">
-          <dt className="text-[11px] uppercase tracking-wide text-ink-faint">This week</dt>
-          <dd className="relative -top-px mt-1 flex items-baseline justify-center gap-1 font-playfair text-lg font-semibold text-ink">
+        <div className="grid min-h-[72px] grid-rows-[16px_28px] content-center rounded-xl bg-surface px-2 py-2.5">
+          <dt className="text-[11px] leading-4 uppercase tracking-wide text-ink-faint">Week</dt>
+          <dd className="mt-1 font-playfair text-lg leading-7 font-semibold text-ink">
             {data.workoutsThisWeek}x
-            <span className="font-inter text-[10px] font-normal text-ink-faint">workouts</span>
           </dd>
         </div>
-        <div className="rounded-xl bg-surface px-2 py-2.5">
-          <dt className="text-[11px] uppercase tracking-wide text-ink-faint">This month</dt>
-          <dd className="relative -top-px mt-1 flex items-baseline justify-center gap-1 font-playfair text-lg font-semibold text-ink">
+        <div className="grid min-h-[72px] grid-rows-[16px_28px] content-center rounded-xl bg-surface px-2 py-2.5">
+          <dt className="text-[11px] leading-4 uppercase tracking-wide text-ink-faint">Month</dt>
+          <dd className="mt-1 font-playfair text-lg leading-7 font-semibold text-ink">
             {data.workoutsThisMonth}x
-            <span className="font-inter text-[10px] font-normal text-ink-faint">workouts</span>
           </dd>
         </div>
       </dl>
