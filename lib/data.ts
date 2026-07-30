@@ -189,21 +189,21 @@ export const projects: Project[] = [
     title: 'nomad',
     description:
       'A Solana-based identity layer that gives AI agents verifiable, revocable permissions.',
-    result: 'Co-built with a team of three for JAMHacks 10. Winner of Best Use of Solana.',
+    result: 'Winner of Best Use of Solana, JamHacks',
     image: '/images/nomad.png',
     imageAlt: 'Nomad AI agent permission interface',
     tags: ['Solana', 'Rust / Anchor', 'TypeScript'],
     demoHref: 'https://x.com/nkimmer_17/status/2066940490096787797',
     demoLabel: 'Live demo',
     sourceHref: 'https://github.com/nickkim172008/nomad',
-    sourceLabel: 'View source',
+    sourceLabel: 'Repo',
     devpostHref: 'https://devpost.com/software/nomad-nrgx3l',
   },
   {
     title: 'Buzzy',
     description:
       'A social market where users discover trends and trade virtual shares using in-app tokens.',
-    result: 'Co-built a full-stack marketplace with live trading and voting for EurekaHacks 2026.',
+    result: 'EurekaHacks.',
     image: '/images/buzzy.png',
     imageAlt: 'Buzzy virtual marketplace trading dashboard',
     tags: ['Next.js', 'TypeScript', 'Firebase'],
@@ -211,13 +211,33 @@ export const projects: Project[] = [
     sourceHref: 'https://github.com/nickkim172008/buzzy',
     devpostHref: 'https://devpost.com/software/buzzy-xd1w2u',
   },
+  {
+    title: 'Marrymap',
+    description:
+      "A shared wedding-planning workspace: couples Tinder-swipe through vendor options together and a built-in CRM tracks every quote from lead to booked.",
+    result: 'First Place, Cursor Toronto Hackathon. $3,500 in prize credits.',
+    image: '/images/marrymap.png',
+    imageAlt: 'Marrymap wedding vendor CRM dashboard',
+    tags: ['Next.js', 'TypeScript', 'Tailwind CSS', 'Supabase'],
+  },
+  {
+    title: 'One2One Tutoring',
+    description:
+      "Before this, introducing myself to new families meant a cold text message, now I just send a link. It gives students and parents a proper, visual first impression, and lays out what I offer and how to book, instead of a back-and-forth over text.",
+    result: 'My Tutoring Buisness Website',
+    image: '/images/one2one-hero.png',
+    imageAlt: 'One2One Tutoring website homepage',
+    tags: ['Next.js', 'TypeScript', 'Tailwind CSS'],
+    demoHref: 'https://one2onetutoring.vercel.app/',
+    demoLabel: 'Visit site',
+  },
 ]
 
 export const contact = {
   invitation:
     "Feel free to reach out if you'd like to discuss opportunities, have a quick coffee chat, or just say hi! I'm always looking forward to meeting new people.",
   portraitSrc: '/images/portrait.jpg',
-  portraitAlt: 'Nick in front of the Golden Gate Bridge',
+  portraitAlt: 'Nick in front of the waterloo bridge',
   submitLabel: 'Submit',
 }
 
