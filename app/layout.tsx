@@ -3,6 +3,7 @@ import { Playfair_Display, Inter } from 'next/font/google'
 import ThemeProvider from '@/components/ThemeProvider'
 import { site } from '@/lib/data'
 import './globals.css'
+import { Analytics } from "@vercel/analytics/next"
 
 const playfair = Playfair_Display({
   subsets: ['latin'],
