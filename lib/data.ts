@@ -176,6 +176,7 @@ export interface Project {
   result: string
   image: string
   imageAlt: string
+  imageHref?: string
   tags: string[]
   demoHref?: string
   demoLabel?: string
@@ -208,25 +209,31 @@ export const projects: Project[] = [
     imageAlt: 'Buzzy virtual marketplace trading dashboard',
     tags: ['Next.js', 'TypeScript', 'Firebase'],
     demoHref: 'https://buzzly-zeta.vercel.app',
+    demoLabel: 'Visit site',
     sourceHref: 'https://github.com/nickkim172008/buzzy',
+    sourceLabel: 'Repo',
     devpostHref: 'https://devpost.com/software/buzzy-xd1w2u',
   },
   {
-    title: 'Marrymap',
+    title: 'MarryMap',
     description:
       "A shared wedding-planning workspace: couples Tinder-swipe through vendor options together and a built-in CRM tracks every quote from lead to booked.",
     result: 'First Place, Cursor Toronto Hackathon. $3,500 in prize credits.',
     image: '/images/marrymap.png',
     imageAlt: 'Marrymap wedding vendor CRM dashboard',
+    imageHref: 'https://x.com/nkimmer_17/status/2080777414423056517',
     tags: ['Next.js', 'TypeScript', 'Tailwind CSS', 'Supabase'],
+    sourceHref: 'https://github.com/aarontran321/marrymap',
+    sourceLabel: 'Repo',
   },
   {
     title: 'One2One Tutoring',
     description:
-      "Before this, introducing myself to new families meant a cold text message, now I just send a link. It gives students and parents a proper, visual first impression, and lays out what I offer and how to book, instead of a back-and-forth over text.",
+      "Before this, introducing myself to new families meant a cold text message, now I just send a link. It gives students and parents a proper, visual first impression, instead of going back-and-forth over text.",
     result: 'My Tutoring Buisness Website',
     image: '/images/one2one-hero.png',
     imageAlt: 'One2One Tutoring website homepage',
+    imageHref: 'https://one2onetutoring.vercel.app/',
     tags: ['Next.js', 'TypeScript', 'Tailwind CSS'],
     demoHref: 'https://one2onetutoring.vercel.app/',
     demoLabel: 'Visit site',

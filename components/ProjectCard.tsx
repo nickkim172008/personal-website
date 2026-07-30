@@ -28,13 +28,13 @@ export default function ProjectCard({ project, reversed = false }: ProjectCardPr
       }`}
     >
       <Reveal y={32}>
-        {project.demoHref ? (
+        {project.imageHref || project.demoHref ? (
           <a
-            href={project.demoHref}
+            href={project.imageHref ?? project.demoHref}
             target="_blank"
             rel="noopener noreferrer"
-            aria-label={`Open ${project.title} live demo`}
-            className="group relative block aspect-[16/11] overflow-hidden rounded-2xl border border-border bg-surface-raised shadow-sm focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent focus-visible:ring-offset-4 focus-visible:ring-offset-surface"
+            aria-label={`Open ${project.title}`}
+            className="group relative block aspect-[16/11] overflow-hidden rounded-2xl border border-border bg-surface-raised shadow-sm transition-all duration-200 hover:-translate-y-0.5 hover:border-accent/40 hover:shadow-md focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent focus-visible:ring-offset-4 focus-visible:ring-offset-surface"
           >
             <motion.div style={{ y: parallaxY }} className="absolute inset-0 transition-transform duration-300 group-hover:scale-[1.02]">
               <Image
@@ -47,7 +47,7 @@ export default function ProjectCard({ project, reversed = false }: ProjectCardPr
             </motion.div>
           </a>
         ) : (
-          <div className="relative aspect-[16/11] overflow-hidden rounded-2xl border border-border bg-surface-raised shadow-sm">
+          <div className="relative aspect-[16/11] overflow-hidden rounded-2xl border border-border bg-surface-raised shadow-sm transition-all duration-200 hover:-translate-y-0.5 hover:border-accent/40 hover:shadow-md">
           <motion.div style={{ y: parallaxY }} className="absolute inset-0">
             <Image
               src={project.image}
