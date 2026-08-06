@@ -1,8 +1,6 @@
 'use client'
 
-import { useRef } from 'react'
 import Image from 'next/image'
-import { motion, useScroll, useTransform, useReducedMotion } from 'framer-motion'
 import { ExternalLink, Github } from 'lucide-react'
 import type { Project } from '@/lib/data'
 import Reveal from './Reveal'
@@ -13,16 +11,10 @@ interface ProjectCardProps {
 }
 
 export default function ProjectCard({ project, reversed = false }: ProjectCardProps) {
-  const ref = useRef<HTMLDivElement>(null)
-  const shouldReduceMotion = useReducedMotion()
-  const { scrollYProgress } = useScroll({ target: ref, offset: ['start end', 'end start'] })
-  const parallaxY = useTransform(scrollYProgress, [0, 1], [shouldReduceMotion ? 0 : -24, shouldReduceMotion ? 0 : 24])
-
   const imageSizes = '(min-width: 1024px) 42rem, 100vw'
 
   return (
     <div
-      ref={ref}
       className={`grid grid-cols-1 items-center gap-8 lg:grid-cols-[1.15fr_1fr] lg:gap-14 ${
         reversed ? 'lg:[&>*:first-child]:order-2' : ''
       }`}
@@ -36,7 +28,7 @@ export default function ProjectCard({ project, reversed = false }: ProjectCardPr
             aria-label={`Open ${project.title}`}
             className="group relative block aspect-[16/11] overflow-hidden rounded-2xl border border-border bg-surface-raised shadow-sm transition-all duration-200 hover:-translate-y-0.5 hover:border-accent/40 hover:shadow-md focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent focus-visible:ring-offset-4 focus-visible:ring-offset-surface"
           >
-            <motion.div style={{ y: parallaxY }} className="absolute inset-0 transition-transform duration-300 group-hover:scale-[1.02]">
+            <div className="absolute inset-0 transition-transform duration-300 group-hover:scale-[1.02]">
               <Image
                 src={project.image}
                 alt={project.imageAlt}
@@ -44,11 +36,11 @@ export default function ProjectCard({ project, reversed = false }: ProjectCardPr
                 sizes={imageSizes}
                 className="object-cover"
               />
-            </motion.div>
+            </div>
           </a>
         ) : (
           <div className="relative aspect-[16/11] overflow-hidden rounded-2xl border border-border bg-surface-raised shadow-sm transition-all duration-200 hover:-translate-y-0.5 hover:border-accent/40 hover:shadow-md">
-          <motion.div style={{ y: parallaxY }} className="absolute inset-0">
+          <div className="absolute inset-0">
             <Image
               src={project.image}
               alt={project.imageAlt}
@@ -56,7 +48,7 @@ export default function ProjectCard({ project, reversed = false }: ProjectCardPr
               sizes={imageSizes}
               className="object-cover"
             />
-          </motion.div>
+          </div>
           </div>
         )}
       </Reveal>
@@ -65,7 +57,7 @@ export default function ProjectCard({ project, reversed = false }: ProjectCardPr
         <div>
           <h3 className="font-playfair text-3xl font-bold text-ink md:text-4xl">{project.title}</h3>
           <p className="mt-4 max-w-xl text-sm leading-6 text-ink-muted md:text-base">{project.description}</p>
-          <p className="mt-3 text-sm font-medium text-ink">{project.result}</p>
+          {project.result && <p className="mt-3 text-sm font-medium text-ink">{project.result}</p>}
 
           <div className="mt-5 flex flex-wrap gap-2">
             {project.tags.map(tag => (

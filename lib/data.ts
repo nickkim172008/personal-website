@@ -173,7 +173,7 @@ export const work: WorkEntry[] = [
 export interface Project {
   title: string
   description: string
-  result: string
+  result?: string
   image: string
   imageAlt: string
   imageHref?: string
@@ -201,10 +201,22 @@ export const projects: Project[] = [
     devpostHref: 'https://devpost.com/software/nomad-nrgx3l',
   },
   {
+    title: 'Janus',
+    description:
+      'An AI-powered sensor arbitration system that detects conflicting spacecraft telemetry and selects the safest data source in real time.',
+    result: 'Third Overall, Google DeepMind Hackathon.',
+    image: '/images/janus.png',
+    imageAlt: 'Janus deep-space sensor fault arbitration dashboard',
+    imageHref:
+      'https://www.linkedin.com/posts/waterloo-dev_waterloodev-hackathon-spacetech-activity-7490785925065777152-JRbC?utm_source=share&utm_medium=member_ios&rcm=ACoAAF1Q234B3sUEOFlSCz-3_OZYdZjECt_oVv0',
+    tags: ['Gemma', 'AI', 'Sensor Fusion'],
+    sourceHref: 'https://github.com/nickkim172008/sensor-arbitor',
+    sourceLabel: 'Repo',
+  },
+  {
     title: 'Buzzy',
     description:
       'A social market where users discover trends and trade virtual shares using in-app tokens.',
-    result: 'EurekaHacks.',
     image: '/images/buzzy.png',
     imageAlt: 'Buzzy virtual marketplace trading dashboard',
     tags: ['Next.js', 'TypeScript', 'Firebase'],
