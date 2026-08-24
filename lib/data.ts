@@ -214,6 +214,18 @@ export const projects: Project[] = [
     sourceLabel: 'Repo',
   },
   {
+    title: 'Atlas',
+    description:
+      'A spatial memory platform that turns ordinary walkthrough videos into photorealistic 3D places you can revisit, organize, and share.',
+    image: '/images/atlas.png',
+    imageAlt: 'Atlas spatial memory platform interface',
+    imageHref: 'https://devpost.com/software/a-p87n0x',
+    tags: ['Next.js', 'Gaussian Splatting', 'Firebase'],
+    sourceHref: 'https://github.com/nickkim172008/atlas',
+    sourceLabel: 'Repo',
+    devpostHref: 'https://devpost.com/software/a-p87n0x',
+  },
+  {
     title: 'Buzzy',
     description:
       'A social market where users discover trends and trade virtual shares using in-app tokens.',
