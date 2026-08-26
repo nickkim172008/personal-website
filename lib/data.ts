@@ -20,7 +20,7 @@ export interface SocialLink {
 }
 
 export const socialLinks: SocialLink[] = [
-  { label: 'GitHub', href: 'https://github.com/nickkim172008', icon: 'github' },
+  { label: 'GitHub', href: 'https://github.com/nickkim17', icon: 'github' },
   { label: 'LinkedIn', href: 'https://linkedin.com/in/nicholaskim17', icon: 'linkedin' },
   { label: 'X', href: 'https://x.com/nkimmer_17', icon: 'x' },
 ]
@@ -57,9 +57,11 @@ export const about = {
     logo: '/images/work/appli-ai.png',
   },
   paragraphs: [
-    "Hey, I'm Nick. I'm starting Management Engineering at the University of Waterloo this fall, where I'm interested in AI systems, LLMs, machine learning, and full-stack development.",
-    "Currently, I'm a Software Engineering Intern at Appli AI and conduct AI safety research focused on RAG and self-improving harnesses. Away from my keyboard, you'll usually find me at the gym, playing guitar, competing at hackathons, or hanging out with friends.",
+    "For a long time, I had no idea what I wanted to do. I did well in school and was always good at math, but I never found anything I genuinely felt passionate about.",
+    "That changed when I discovered coding and hackathons. I loved taking an idea, turning it into something real, and seeing the impact it could have on other people. It was the first time learning felt exciting beyond getting a good grade.",
+    "I'm currently studying Management Engineering at the University of Waterloo and working as a Software Engineering Intern at Appli AI. When I'm not building, you'll usually find me at the gym, playing guitar, or hanging out with friends.",
   ],
+  hobbiesCta: { label: 'See my hobbies', href: '#hobbies' },
   exploring: {
     heading: "What I'm exploring",
     items: ['How LLMs work and reason', 'AI agents and automation', 'Building useful full-stack products'],
@@ -196,7 +198,7 @@ export const projects: Project[] = [
     tags: ['Solana', 'Rust / Anchor', 'TypeScript'],
     demoHref: 'https://x.com/nkimmer_17/status/2066940490096787797',
     demoLabel: 'Live demo',
-    sourceHref: 'https://github.com/nickkim172008/nomad',
+    sourceHref: 'https://github.com/nickkim17/nomad',
     sourceLabel: 'Repo',
     devpostHref: 'https://devpost.com/software/nomad-nrgx3l',
   },
@@ -210,7 +212,7 @@ export const projects: Project[] = [
     imageHref:
       'https://www.linkedin.com/posts/waterloo-dev_waterloodev-hackathon-spacetech-activity-7490785925065777152-JRbC?utm_source=share&utm_medium=member_ios&rcm=ACoAAF1Q234B3sUEOFlSCz-3_OZYdZjECt_oVv0',
     tags: ['Gemma', 'AI', 'Sensor Fusion'],
-    sourceHref: 'https://github.com/nickkim172008/sensor-arbitor',
+    sourceHref: 'https://github.com/nickkim17/sensor-arbitor',
     sourceLabel: 'Repo',
   },
   {
@@ -221,7 +223,7 @@ export const projects: Project[] = [
     imageAlt: 'Atlas spatial memory platform interface',
     imageHref: 'https://devpost.com/software/a-p87n0x',
     tags: ['Next.js', 'Gaussian Splatting', 'Firebase'],
-    sourceHref: 'https://github.com/nickkim172008/atlas',
+    sourceHref: 'https://github.com/nickkim17/atlas',
     sourceLabel: 'Repo',
     devpostHref: 'https://devpost.com/software/a-p87n0x',
   },
@@ -234,7 +236,7 @@ export const projects: Project[] = [
     tags: ['Next.js', 'TypeScript', 'Firebase'],
     demoHref: 'https://buzzly-zeta.vercel.app',
     demoLabel: 'Visit site',
-    sourceHref: 'https://github.com/nickkim172008/buzzy',
+    sourceHref: 'https://github.com/nickkim17/buzzy',
     sourceLabel: 'Repo',
     devpostHref: 'https://devpost.com/software/buzzy-xd1w2u',
   },

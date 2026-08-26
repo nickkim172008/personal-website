@@ -1,12 +1,13 @@
 import { about } from '@/lib/data'
 import Image from 'next/image'
+import { ArrowDownRight } from 'lucide-react'
 import Reveal from './Reveal'
 import PhotoStack from './PhotoStack'
 
 const taggedMentions = [about.waterloo, about.appliAI]
 const mentionPattern = new RegExp(`(${taggedMentions.map(m => m.name).join('|')})`, 'g')
 
-function AboutParagraph({ text }: { text: string }) {
+function AboutParagraph({ text, showHobbiesLink = false }: { text: string; showHobbiesLink?: boolean }) {
   const segments = text.split(mentionPattern)
 
   return (
@@ -30,6 +31,19 @@ function AboutParagraph({ text }: { text: string }) {
           </a>
         )
       })}
+      {showHobbiesLink && (
+        <a
+          href={about.hobbiesCta.href}
+          className="group ml-2 inline-flex items-center gap-1 whitespace-nowrap rounded-full bg-accent/10 px-3 py-1 text-sm font-semibold leading-6 text-accent transition-colors hover:bg-accent hover:text-white focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent focus-visible:ring-offset-2 focus-visible:ring-offset-surface"
+        >
+          {about.hobbiesCta.label}
+          <ArrowDownRight
+            size={15}
+            aria-hidden="true"
+            className="transition-transform duration-200 group-hover:translate-x-0.5 group-hover:translate-y-0.5 motion-reduce:transition-none"
+          />
+        </a>
+      )}
     </>
   )
 }
@@ -47,7 +61,7 @@ export default function About() {
             {about.paragraphs.map((paragraph, i) => (
               <Reveal key={paragraph} delay={i * 0.08}>
                 <p className={`${i === 0 ? '' : 'mt-6'} text-lg leading-8 text-ink-muted md:text-xl`}>
-                  <AboutParagraph text={paragraph} />
+                  <AboutParagraph text={paragraph} showHobbiesLink={i === about.paragraphs.length - 1} />
                 </p>
               </Reveal>
             ))}
