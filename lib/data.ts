@@ -57,14 +57,13 @@ export const about = {
     logo: '/images/work/appli-ai.png',
   },
   paragraphs: [
-    "For a long time, I had no idea what I wanted to do. I did well in school and was always good at math, but I never found anything I genuinely felt passionate about.",
-    "That changed when I discovered coding and hackathons. I loved taking an idea, turning it into something real, and seeing the impact it could have on other people. It was the first time learning felt exciting beyond getting a good grade.",
-    "I'm currently studying Management Engineering at the University of Waterloo and working as a Software Engineering Intern at Appli AI. When I'm not building, you'll usually find me at the gym, playing guitar, or hanging out with friends.",
+    "School always came easy, but nothing really clicked until I started building. Hackathons did it: take an idea, ship it over a weekend, watch someone actually use it. That's still the part I chase.",
+    "I study Management Engineering at the University of Waterloo and build as a Software Engineering Intern at Appli AI. Outside of tech: gym, guitar, golf, hockey.",
   ],
   hobbiesCta: { label: 'See my hobbies', href: '#hobbies' },
   exploring: {
     heading: "What I'm exploring",
-    items: ['How LLMs work and reason', 'AI agents and automation', 'Building useful full-stack products'],
+    items: ['AI Saftey', 'AI agents and automation', 'Building useful full-stack products'],
   },
   gallery: [
     { src: '/images/gallery/golf.jpeg', alt: 'Lining up a putt on the green with a friend' },
