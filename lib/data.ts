@@ -20,7 +20,7 @@ export interface SocialLink {
 }
 
 export const socialLinks: SocialLink[] = [
-  { label: 'GitHub', href: 'https://github.com/nickkim17', icon: 'github' },
+  { label: 'GitHub', href: 'https://github.com/nicholaskim17', icon: 'github' },
   { label: 'LinkedIn', href: 'https://linkedin.com/in/nicholaskim17', icon: 'linkedin' },
   { label: 'X', href: 'https://x.com/nkimmer_17', icon: 'x' },
 ]
@@ -197,7 +197,7 @@ export const projects: Project[] = [
     tags: ['Solana', 'Rust / Anchor', 'TypeScript'],
     demoHref: 'https://x.com/nkimmer_17/status/2066940490096787797',
     demoLabel: 'Live demo',
-    sourceHref: 'https://github.com/nickkim17/nomad',
+    sourceHref: 'https://github.com/nicholaskim17/nomad',
     sourceLabel: 'Repo',
     devpostHref: 'https://devpost.com/software/nomad-nrgx3l',
   },
@@ -211,7 +211,7 @@ export const projects: Project[] = [
     imageHref:
       'https://www.linkedin.com/posts/waterloo-dev_waterloodev-hackathon-spacetech-activity-7490785925065777152-JRbC?utm_source=share&utm_medium=member_ios&rcm=ACoAAF1Q234B3sUEOFlSCz-3_OZYdZjECt_oVv0',
     tags: ['Gemma', 'AI', 'Sensor Fusion'],
-    sourceHref: 'https://github.com/nickkim17/sensor-arbitor',
+    sourceHref: 'https://github.com/nicholaskim17/sensor-arbitor',
     sourceLabel: 'Repo',
   },
   {
@@ -222,7 +222,7 @@ export const projects: Project[] = [
     imageAlt: 'Atlas spatial memory platform interface',
     imageHref: 'https://devpost.com/software/a-p87n0x',
     tags: ['Next.js', 'Gaussian Splatting', 'Firebase'],
-    sourceHref: 'https://github.com/nickkim17/atlas',
+    sourceHref: 'https://github.com/nicholaskim17/atlas',
     sourceLabel: 'Repo',
     devpostHref: 'https://devpost.com/software/a-p87n0x',
   },
@@ -235,7 +235,7 @@ export const projects: Project[] = [
     tags: ['Next.js', 'TypeScript', 'Firebase'],
     demoHref: 'https://buzzly-zeta.vercel.app',
     demoLabel: 'Visit site',
-    sourceHref: 'https://github.com/nickkim17/buzzy',
+    sourceHref: 'https://github.com/nicholaskim17/buzzy',
     sourceLabel: 'Repo',
     devpostHref: 'https://devpost.com/software/buzzy-xd1w2u',
   },
